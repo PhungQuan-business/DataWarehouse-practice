@@ -88,8 +88,8 @@ After running the workflow you will have a Dataset in BigQuery with each of the 
 Airflow is use for transformation once the data ingestion process done with Nifi
 
 Using the I provided and you will have something like this:
-![Alt text](iimages/mage-10.png)
+![Alt text](images/image-10.png)
 
 Run the DAGs and a new dataset named OLAP will be created in BigQuery
-![Alt text](iimages/mage-11.png)
+![Alt text](images/image-11.png)
 
