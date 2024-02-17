@@ -1,0 +1,30 @@
+[2023-12-08T23:32:17.084+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: taskflow.extract manual__2023-12-08T23:32:12+00:00 [queued]>
+[2023-12-08T23:32:17.090+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: taskflow.extract manual__2023-12-08T23:32:12+00:00 [queued]>
+[2023-12-08T23:32:17.091+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-08T23:32:17.100+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): extract> on 2023-12-08 23:32:12+00:00
+[2023-12-08T23:32:17.108+0000] {standard_task_runner.py:57} INFO - Started process 379 to run task
+[2023-12-08T23:32:17.111+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'taskflow', 'extract', 'manual__2023-12-08T23:32:12+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/test_decorator.py', '--cfg-path', '/tmp/tmptsgljhmt']
+[2023-12-08T23:32:17.115+0000] {standard_task_runner.py:85} INFO - Job 67: Subtask extract
+[2023-12-08T23:32:17.189+0000] {task_command.py:416} INFO - Running <TaskInstance: taskflow.extract manual__2023-12-08T23:32:12+00:00 [running]> on host 3de6e37e1218
+[2023-12-08T23:32:17.307+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='taskflow' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-12-08T23:32:12+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-08T23:32:12+00:00'
+[2023-12-08T23:32:17.311+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/test_decorator.py", line 16, in extract_file_path
+    all_path = [filepath for filepath in pathlib.Path(FOLDER_PATH).glob('**/*')]
+  File "/usr/local/lib/python3.8/pathlib.py", line 1042, in __new__
+    self = cls._from_parts(args, init=False)
+  File "/usr/local/lib/python3.8/pathlib.py", line 683, in _from_parts
+    drv, root, parts = self._parse_args(args)
+  File "/usr/local/lib/python3.8/pathlib.py", line 667, in _parse_args
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not DagParam
+[2023-12-08T23:32:17.325+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=taskflow, task_id=extract, execution_date=20231208T233212, start_date=20231208T233217, end_date=20231208T233217
+[2023-12-08T23:32:17.345+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 67 for task extract (expected str, bytes or os.PathLike object, not DagParam; 379)
+[2023-12-08T23:32:17.374+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-08T23:32:17.394+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

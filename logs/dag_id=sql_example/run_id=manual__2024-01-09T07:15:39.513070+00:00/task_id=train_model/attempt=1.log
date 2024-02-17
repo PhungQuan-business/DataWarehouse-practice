@@ -1,0 +1,48 @@
+[2024-01-09T07:16:36.244+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.train_model manual__2024-01-09T07:15:39.513070+00:00 [queued]>
+[2024-01-09T07:16:36.251+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.train_model manual__2024-01-09T07:15:39.513070+00:00 [queued]>
+[2024-01-09T07:16:36.251+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-09T07:16:36.260+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): train_model> on 2024-01-09 07:15:39.513070+00:00
+[2024-01-09T07:16:36.273+0000] {standard_task_runner.py:57} INFO - Started process 1776 to run task
+[2024-01-09T07:16:36.277+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'train_model', 'manual__2024-01-09T07:15:39.513070+00:00', '--job-id', '261', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpdpxybkxu']
+[2024-01-09T07:16:36.280+0000] {standard_task_runner.py:85} INFO - Job 261: Subtask train_model
+[2024-01-09T07:16:36.320+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.train_model manual__2024-01-09T07:15:39.513070+00:00 [running]> on host 812d78d3a260
+[2024-01-09T07:16:36.387+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2024-01-09T07:15:39.513070+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-09T07:15:39.513070+00:00'
+[2024-01-09T07:16:40.108+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:1416 FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+[2024-01-09T07:16:41.869+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/client.py", line 2481, in load_table_from_file
+    response = self._do_multipart_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/client.py", line 3036, in _do_multipart_upload
+    response = upload.transmit(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/resumable_media/requests/upload.py", line 153, in transmit
+    return _request_helpers.wait_and_retry(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/resumable_media/requests/_request_helpers.py", line 155, in wait_and_retry
+    response = func()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/resumable_media/requests/upload.py", line 149, in retriable_request
+    self._process_response(result)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/resumable_media/_upload.py", line 125, in _process_response
+    _helpers.require_status_code(response, (http.client.OK,), self._get_status_code)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/resumable_media/_helpers.py", line 108, in require_status_code
+    raise common.InvalidResponse(
+google.resumable_media.common.InvalidResponse: ('Request failed with status code', 404, 'Expected one of', 200)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_transform_BQ.py", line 99, in model_training
+    train_model()
+  File "/opt/airflow/dags/clustering.py", line 35, in train_model
+    job = client.load_table_from_dataframe(df_with_labels, table_ref)  # Make an API request.
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/client.py", line 2717, in load_table_from_dataframe
+    return self.load_table_from_file(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/client.py", line 2485, in load_table_from_file
+    raise exceptions.from_http_response(exc.response)
+google.api_core.exceptions.NotFound: 404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/northwind-qu/jobs?uploadType=multipart: Not found: Dataset northwind-qu:LanhDataset
+[2024-01-09T07:16:41.904+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=sql_example, task_id=train_model, execution_date=20240109T071539, start_date=20240109T071636, end_date=20240109T071641
+[2024-01-09T07:16:41.937+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 261 for task train_model (404 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/northwind-qu/jobs?uploadType=multipart: Not found: Dataset northwind-qu:LanhDataset; 1776)
+[2024-01-09T07:16:41.980+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-01-09T07:16:41.999+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

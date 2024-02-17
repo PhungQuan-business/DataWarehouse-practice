@@ -1,0 +1,28 @@
+[2023-12-09T18:02:36.148+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T18:02:31.278634+00:00 [queued]>
+[2023-12-09T18:02:36.157+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T18:02:31.278634+00:00 [queued]>
+[2023-12-09T18:02:36.158+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-12-09T18:02:36.169+0000] {taskinstance.py:1382} INFO - Executing <Task(LocalFilesystemToGCSOperator): upload_to_gcs> on 2023-12-09 18:02:31.278634+00:00
+[2023-12-09T18:02:36.185+0000] {standard_task_runner.py:57} INFO - Started process 29534 to run task
+[2023-12-09T18:02:36.189+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'taskflow', 'upload_to_gcs', 'manual__2023-12-09T18:02:31.278634+00:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/test_decorator.py', '--cfg-path', '/tmp/tmpewr3z__f']
+[2023-12-09T18:02:36.194+0000] {standard_task_runner.py:85} INFO - Job 99: Subtask upload_to_gcs
+[2023-12-09T18:02:36.238+0000] {task_command.py:416} INFO - Running <TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T18:02:31.278634+00:00 [running]> on host 3de6e37e1218
+[2023-12-09T18:02:36.343+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='taskflow' AIRFLOW_CTX_TASK_ID='upload_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-12-09T18:02:31.278634+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-09T18:02:31.278634+00:00'
+[2023-12-09T18:02:36.353+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2023-12-09T18:02:36.354+0000] {base.py:73} INFO - Using connection ID 'google_cloud_datastore_default' for task execution.
+[2023-12-09T18:02:36.354+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2023-12-09T18:02:38.515+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Customers.csv uploaded to data/Customers.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:38.903+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Categories.csv uploaded to data/Categories.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:39.646+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Products.csv uploaded to data/Products.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:40.364+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Orders.csv uploaded to data/Orders.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:40.774+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Suppliers.csv uploaded to data/Suppliers.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:41.558+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/CustomerCustomerDemo.csv uploaded to data/CustomerCustomerDemo.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:41.965+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Shippers.csv uploaded to data/Shippers.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:42.785+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Territories.csv uploaded to data/Territories.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:43.098+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Employees.csv uploaded to data/Employees.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:44.033+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Region.csv uploaded to data/Region.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:44.340+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/EmployeeTerritories.csv uploaded to data/EmployeeTerritories.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:45.294+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/CustomerDemographics.csv uploaded to data/CustomerDemographics.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:45.894+0000] {gcs.py:562} INFO - File /opt/***/data/northwind_gitRepo/northwind_gitRepo/tables/Order_details.csv uploaded to data/Order_details.csv in us-central1-test-env-b4f32c38-bucket bucket
+[2023-12-09T18:02:45.926+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=taskflow, task_id=upload_to_gcs, execution_date=20231209T180231, start_date=20231209T180236, end_date=20231209T180245
+[2023-12-09T18:02:46.025+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-09T18:02:46.067+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

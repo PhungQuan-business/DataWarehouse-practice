@@ -1,0 +1,44 @@
+[2023-12-09T15:07:46.626+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T15:07:39.721825+00:00 [queued]>
+[2023-12-09T15:07:46.633+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T15:07:39.721825+00:00 [queued]>
+[2023-12-09T15:07:46.633+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-12-09T15:07:46.653+0000] {taskinstance.py:1382} INFO - Executing <Task(LocalFilesystemToGCSOperator): upload_to_gcs> on 2023-12-09 15:07:39.721825+00:00
+[2023-12-09T15:07:46.665+0000] {standard_task_runner.py:57} INFO - Started process 20132 to run task
+[2023-12-09T15:07:46.669+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'taskflow', 'upload_to_gcs', 'manual__2023-12-09T15:07:39.721825+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/test_decorator.py', '--cfg-path', '/tmp/tmpxdwu13ub']
+[2023-12-09T15:07:46.673+0000] {standard_task_runner.py:85} INFO - Job 84: Subtask upload_to_gcs
+[2023-12-09T15:07:46.716+0000] {task_command.py:416} INFO - Running <TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T15:07:39.721825+00:00 [running]> on host 3de6e37e1218
+[2023-12-09T15:07:46.761+0000] {abstractoperator.py:709} ERROR - Exception rendering Jinja template for task 'upload_to_gcs', field 'src'. Template: XComArg(<Task(_PythonDecoratedOperator): extract>, 'all_path')
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/abstractoperator.py", line 701, in _do_render_template_fields
+    rendered_content = self.render_template(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/template/templater.py", line 157, in render_template
+    return value.resolve(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom_arg.py", line 433, in resolve
+    raise XComNotFound(ti.dag_id, task_id, self.key)
+airflow.exceptions.XComNotFound: XComArg result from extract at taskflow with key="all_path" is not found!
+[2023-12-09T15:07:46.777+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1518, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1647, in _execute_task_with_callbacks
+    task_orig = self.render_templates(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2285, in render_templates
+    original_task.render_template_fields(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 1243, in render_template_fields
+    self._do_render_template_fields(self, self.template_fields, context, jinja_env, set())
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/abstractoperator.py", line 701, in _do_render_template_fields
+    rendered_content = self.render_template(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/template/templater.py", line 157, in render_template
+    return value.resolve(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/xcom_arg.py", line 433, in resolve
+    raise XComNotFound(ti.dag_id, task_id, self.key)
+airflow.exceptions.XComNotFound: XComArg result from extract at taskflow with key="all_path" is not found!
+[2023-12-09T15:07:46.783+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=taskflow, task_id=upload_to_gcs, execution_date=20231209T150739, start_date=20231209T150746, end_date=20231209T150746
+[2023-12-09T15:07:46.796+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 84 for task upload_to_gcs (XComArg result from extract at taskflow with key="all_path" is not found!; 20132)
+[2023-12-09T15:07:46.847+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-09T15:07:46.871+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

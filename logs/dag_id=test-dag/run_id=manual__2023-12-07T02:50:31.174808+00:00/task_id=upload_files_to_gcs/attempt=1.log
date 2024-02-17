@@ -1,0 +1,23 @@
+[2023-12-07T02:50:33.162+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test-dag.upload_files_to_gcs manual__2023-12-07T02:50:31.174808+00:00 [queued]>
+[2023-12-07T02:50:33.170+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test-dag.upload_files_to_gcs manual__2023-12-07T02:50:31.174808+00:00 [queued]>
+[2023-12-07T02:50:33.170+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-07T02:50:33.182+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): upload_files_to_gcs> on 2023-12-07 02:50:31.174808+00:00
+[2023-12-07T02:50:33.193+0000] {standard_task_runner.py:57} INFO - Started process 340 to run task
+[2023-12-07T02:50:33.198+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'test-dag', 'upload_files_to_gcs', 'manual__2023-12-07T02:50:31.174808+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/GCS_to_BQ.py', '--cfg-path', '/tmp/tmpdsxo3ucb']
+[2023-12-07T02:50:33.208+0000] {standard_task_runner.py:85} INFO - Job 30: Subtask upload_files_to_gcs
+[2023-12-07T02:50:33.298+0000] {task_command.py:416} INFO - Running <TaskInstance: test-dag.upload_files_to_gcs manual__2023-12-07T02:50:31.174808+00:00 [running]> on host e8c0a66e7c0e
+[2023-12-07T02:50:33.405+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='test-dag' AIRFLOW_CTX_TASK_ID='upload_files_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-12-07T02:50:31.174808+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-07T02:50:31.174808+00:00'
+[2023-12-07T02:50:33.411+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-12-07T02:50:33.412+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'gsutil -cp /Users/phunghongquan/Documents/học-kì-5/DataWarehouse/northwind_gitRepo/northwind_gitRepo/tables/Customers.csv gs://us-central1-test-env-b4f32c38-bucket/data']
+[2023-12-07T02:50:33.430+0000] {subprocess.py:86} INFO - Output:
+[2023-12-07T02:50:33.436+0000] {subprocess.py:93} INFO - /bin/bash: line 1: gsutil: command not found
+[2023-12-07T02:50:33.437+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2023-12-07T02:50:33.463+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2023-12-07T02:50:33.469+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=test-dag, task_id=upload_files_to_gcs, execution_date=20231207T025031, start_date=20231207T025033, end_date=20231207T025033
+[2023-12-07T02:50:33.482+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 30 for task upload_files_to_gcs (Bash command failed. The command returned a non-zero exit code 127.; 340)
+[2023-12-07T02:50:33.508+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-07T02:50:33.526+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

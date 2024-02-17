@@ -1,0 +1,29 @@
+[2023-12-10T06:57:50.979+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: taskflow.load_Order_detail_to_bigquery manual__2023-12-10T06:57:11.931744+00:00 [queued]>
+[2023-12-10T06:57:51.107+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: taskflow.load_Order_detail_to_bigquery manual__2023-12-10T06:57:11.931744+00:00 [queued]>
+[2023-12-10T06:57:51.182+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-12-10T06:57:51.563+0000] {taskinstance.py:1382} INFO - Executing <Task(GCSToBigQueryOperator): load_Order_detail_to_bigquery> on 2023-12-10 06:57:11.931744+00:00
+[2023-12-10T06:57:51.682+0000] {standard_task_runner.py:57} INFO - Started process 1044 to run task
+[2023-12-10T06:57:51.771+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'taskflow', 'load_Order_detail_to_bigquery', 'manual__2023-12-10T06:57:11.931744+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/test_decorator.py', '--cfg-path', '/tmp/tmppujiaanw']
+[2023-12-10T06:57:51.911+0000] {standard_task_runner.py:85} INFO - Job 124: Subtask load_Order_detail_to_bigquery
+[2023-12-10T06:57:55.210+0000] {task_command.py:416} INFO - Running <TaskInstance: taskflow.load_Order_detail_to_bigquery manual__2023-12-10T06:57:11.931744+00:00 [running]> on host 580ab8862310
+[2023-12-10T06:58:03.774+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='taskflow' AIRFLOW_CTX_TASK_ID='load_Order_detail_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2023-12-10T06:57:11.931744+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-10T06:57:11.931744+00:00'
+[2023-12-10T06:58:03.965+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2023-12-10T06:58:04.112+0000] {base.py:73} INFO - Using connection ID 'google_cloud_datastore_default' for task execution.
+[2023-12-10T06:58:04.158+0000] {gcs_to_bigquery.py:376} INFO - Using existing BigQuery table for storing data...
+[2023-12-10T06:58:04.161+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2023-12-10T06:58:04.871+0000] {bigquery.py:2311} INFO - Project is not included in destination_project_dataset_table: dataset_for_dag_testing.Order_detail; using project "northwind-qu"
+[2023-12-10T06:58:04.892+0000] {gcs_to_bigquery.py:380} INFO - Executing: {'load': {'autodetect': True, 'createDisposition': 'CREATE_IF_NEEDED', 'destinationTable': {'projectId': 'northwind-qu', 'datasetId': 'dataset_for_dag_testing', 'tableId': 'Order_detail'}, 'sourceFormat': 'CSV', 'sourceUris': ['gs://us-central1-test-env-b4f32c38-bucket/data/Order_detail.csv'], 'writeDisposition': 'WRITE_TRUNCATE', 'ignoreUnknownValues': False, 'skipLeadingRows': 1, 'fieldDelimiter': ',', 'quote': None, 'allowQuotedNewlines': False, 'encoding': 'UTF-8'}}
+[2023-12-10T06:58:04.962+0000] {bigquery.py:1595} INFO - Inserting job ***_taskflow_load_Order_detail_to_bigquery_2023_12_10T06_57_11_931744_00_00_a97b116544404c3af2152369a1d476bb
+[2023-12-10T06:58:12.188+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/transfers/gcs_to_bigquery.py", line 439, in execute
+    job.result(timeout=self.result_timeout, retry=self.result_retry)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/base.py", line 922, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: URI gs://us-central1-test-env-b4f32c38-bucket/data/Order_detail.csv
+[2023-12-10T06:58:12.345+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=taskflow, task_id=load_Order_detail_to_bigquery, execution_date=20231210T065711, start_date=20231210T065751, end_date=20231210T065812
+[2023-12-10T06:58:14.079+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 124 for task load_Order_detail_to_bigquery (404 Not found: URI gs://us-central1-test-env-b4f32c38-bucket/data/Order_detail.csv; 1044)
+[2023-12-10T06:58:14.298+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-10T06:58:15.141+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

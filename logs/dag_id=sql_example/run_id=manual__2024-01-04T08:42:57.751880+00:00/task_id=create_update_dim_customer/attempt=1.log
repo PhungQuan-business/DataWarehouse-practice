@@ -1,0 +1,113 @@
+[2024-01-04T08:43:14.718+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_customer manual__2024-01-04T08:42:57.751880+00:00 [queued]>
+[2024-01-04T08:43:14.729+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_customer manual__2024-01-04T08:42:57.751880+00:00 [queued]>
+[2024-01-04T08:43:14.729+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-04T08:43:14.740+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_customer> on 2024-01-04 08:42:57.751880+00:00
+[2024-01-04T08:43:14.766+0000] {standard_task_runner.py:57} INFO - Started process 11582 to run task
+[2024-01-04T08:43:14.776+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_customer', 'manual__2024-01-04T08:42:57.751880+00:00', '--job-id', '220', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpevc854cu']
+[2024-01-04T08:43:14.781+0000] {standard_task_runner.py:85} INFO - Job 220: Subtask create_update_dim_customer
+[2024-01-04T08:43:14.832+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.create_update_dim_customer manual__2024-01-04T08:42:57.751880+00:00 [running]> on host 812d78d3a260
+[2024-01-04T08:43:14.915+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_customer' AIRFLOW_CTX_EXECUTION_DATE='2024-01-04T08:42:57.751880+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-04T08:42:57.751880+00:00'
+[2024-01-04T08:43:14.918+0000] {bigquery.py:1241} INFO - Executing: -- DROP TABLE `LanhDataset.Dim_Customer`;
+
+CREATE OR REPLACE TABLE `LanhDataset.Dim_Customer` ( 
+      CustomerID                    STRING,
+      Contact_Name                   STRING,
+      Total_Number_of_transaction   int,
+      Total_discount                FLOAT64,
+      Monetary                      FLOAT64,
+      Recency                       INT,
+      Frequency                     FLOAT64,
+      Country                       STRING,
+      City                          STRING,
+      PhoneNumber                  STRING
+  
+);
+
+INSERT INTO `LanhDataset.Dim_Customer` (CustomerID, Contact_Name, Country,City,PhoneNumber)
+SELECT CustomerID, Contact_Name, Country,City,PhoneNumber
+FROM `OLTP.Customers`;
+
+UPDATE `LanhDataset.Dim_Customer`
+SET Total_Number_of_transaction = (
+    SELECT COUNT(DISTINCT OrderID)
+    FROM `LanhDataset.Fact_Order`
+    WHERE `LanhDataset.Dim_Customer`.CustomerID = `LanhDataset.Fact_Order`.CustomerID
+)
+WHERE true;
+
+UPDATE `LanhDataset.Dim_Customer` AS dim
+SET Monetary = (
+  SELECT COALESCE(SUM(Revenue), 0)
+  FROM `LanhDataset.Fact_Order` AS fact
+  WHERE dim.CustomerID = fact.CustomerID
+)
+WHERE dim.CustomerID IS NOT NULL;
+
+UPDATE `LanhDataset.Dim_Customer`
+SET Frequency = (
+    SELECT `LanhDataset.Dim_Customer`.Total_Number_of_transaction / COUNT(DISTINCT CONCAT(CAST(`LanhDataset.Dim_Date`.Year AS STRING), '-', CAST(`LanhDataset.Dim_Date`.Month AS STRING)))
+    FROM `LanhDataset.Dim_Date`
+)
+WHERE `LanhDataset.Dim_Customer`.CustomerID IS NOT NULL;
+
+UPDATE `LanhDataset.Dim_Customer`
+SET Recency = (
+    SELECT DATE_DIFF(
+            (SELECT MAX(Date) FROM `LanhDataset.Dim_Date`),
+            MAX(OrderDate),
+            DAY
+        ) AS Recency
+    FROM `LanhDataset.Fact_Order`
+    WHERE `LanhDataset.Dim_Customer`.CustomerID = `LanhDataset.Fact_Order`.CustomerID
+)
+WHERE EXISTS (
+    SELECT 1
+    FROM `LanhDataset.Fact_Order`
+    WHERE `LanhDataset.Dim_Customer`.CustomerID = `LanhDataset.Fact_Order`.CustomerID
+);
+
+UPDATE `LanhDataset.Dim_Customer` AS dim
+SET Total_discount = (
+  SELECT COALESCE(SUM(Discount_Money), 0)
+  FROM `LanhDataset.Fact_Order` AS fact
+  WHERE dim.CustomerID = fact.CustomerID
+)
+WHERE dim.CustomerID IS NOT NULL;
+
+
+[2024-01-04T08:43:14.926+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-04T08:43:14.927+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-04T08:43:14.933+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-04T08:43:14.934+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-04T08:43:15.004+0000] {bigquery.py:1595} INFO - Inserting job ***_1704357795002623_d1c31f4334dc35710bb909daeabc44e3
+[2024-01-04T08:43:22.171+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1249, in execute
+    self.job_id = self.hook.run_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2241, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id, location=location)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 475, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1601, in insert_job
+    job_api_repr.result(timeout=timeout, retry=retry)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/query.py", line 1580, in result
+    do_get_result()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/query.py", line 1570, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/base.py", line 922, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Query error: division by zero: 9 / 0 at [37:1]
+
+Location: asia-east1
+Job ID: airflow_1704357795002623_d1c31f4334dc35710bb909daeabc44e3
+
+[2024-01-04T08:43:22.212+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=sql_example, task_id=create_update_dim_customer, execution_date=20240104T084257, start_date=20240104T084314, end_date=20240104T084322
+[2024-01-04T08:43:22.230+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 220 for task create_update_dim_customer (400 Query error: division by zero: 9 / 0 at [37:1]
+
+Location: asia-east1
+Job ID: airflow_1704357795002623_d1c31f4334dc35710bb909daeabc44e3
+; 11582)
+[2024-01-04T08:43:22.283+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-01-04T08:43:22.323+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

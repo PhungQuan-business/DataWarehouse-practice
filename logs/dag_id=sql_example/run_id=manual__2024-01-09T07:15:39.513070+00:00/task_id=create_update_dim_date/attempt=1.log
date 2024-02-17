@@ -1,0 +1,37 @@
+[2024-01-09T07:16:05.662+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_date manual__2024-01-09T07:15:39.513070+00:00 [queued]>
+[2024-01-09T07:16:05.669+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_date manual__2024-01-09T07:15:39.513070+00:00 [queued]>
+[2024-01-09T07:16:05.669+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-09T07:16:05.678+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_date> on 2024-01-09 07:15:39.513070+00:00
+[2024-01-09T07:16:05.689+0000] {standard_task_runner.py:57} INFO - Started process 1696 to run task
+[2024-01-09T07:16:05.693+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_date', 'manual__2024-01-09T07:15:39.513070+00:00', '--job-id', '257', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpwg27m3jf']
+[2024-01-09T07:16:05.696+0000] {standard_task_runner.py:85} INFO - Job 257: Subtask create_update_dim_date
+[2024-01-09T07:16:05.736+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.create_update_dim_date manual__2024-01-09T07:15:39.513070+00:00 [running]> on host 812d78d3a260
+[2024-01-09T07:16:05.799+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_date' AIRFLOW_CTX_EXECUTION_DATE='2024-01-09T07:15:39.513070+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-09T07:15:39.513070+00:00'
+[2024-01-09T07:16:05.800+0000] {bigquery.py:1241} INFO - Executing: CREATE OR REPLACE TABLE `OLAP.Dim_Date` AS
+SELECT
+  date AS Date,
+  EXTRACT(YEAR FROM date) AS Year,
+  EXTRACT(MONTH FROM date) AS Month,
+  EXTRACT(DAY FROM date) AS Day,
+  FORMAT_DATE('%A', date) AS DayName,
+  EXTRACT(QUARTER FROM date) AS Quarter
+FROM UNNEST(GENERATE_DATE_ARRAY(
+  (SELECT MIN(CAST(OrderDate AS DATE)) FROM `OLAP.Fact_Order`),  -- Cast OrderDate to DATE
+  (SELECT MAX(CAST(OrderDate AS DATE)) FROM `OLAP.Fact_Order`),  -- Cast OrderDate to DATE
+  INTERVAL 1 DAY
+)) AS date;
+
+ALTER TABLE `OLAP.Dim_Date`
+ADD COLUMN IsWeekend BOOL;
+UPDATE `OLAP.Dim_Date`
+SET IsWeekend = 
+  CASE WHEN EXTRACT(DAYOFWEEK FROM Date) IN (1, 7) THEN TRUE ELSE FALSE END
+WHERE true;
+[2024-01-09T07:16:05.807+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-09T07:16:05.808+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-09T07:16:05.812+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-09T07:16:05.813+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-09T07:16:05.878+0000] {bigquery.py:1595} INFO - Inserting job ***_1704784565877610_1fa65a70741d886c86179df462929ea1
+[2024-01-09T07:16:11.605+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_dim_date, execution_date=20240109T071539, start_date=20240109T071605, end_date=20240109T071611
+[2024-01-09T07:16:11.652+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-09T07:16:11.675+0000] {taskinstance.py:2778} INFO - 2 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,32 @@
+[2023-12-07T03:28:52.906+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test-dag.read_csv_file manual__2023-12-07T03:28:49.239748+00:00 [queued]>
+[2023-12-07T03:28:52.922+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test-dag.read_csv_file manual__2023-12-07T03:28:49.239748+00:00 [queued]>
+[2023-12-07T03:28:52.922+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-07T03:28:52.935+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): read_csv_file> on 2023-12-07 03:28:49.239748+00:00
+[2023-12-07T03:28:52.948+0000] {standard_task_runner.py:57} INFO - Started process 1660 to run task
+[2023-12-07T03:28:52.972+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'test-dag', 'read_csv_file', 'manual__2023-12-07T03:28:49.239748+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/GCS_to_BQ.py', '--cfg-path', '/tmp/tmp7p3n4skn']
+[2023-12-07T03:28:52.979+0000] {standard_task_runner.py:85} INFO - Job 40: Subtask read_csv_file
+[2023-12-07T03:28:53.052+0000] {task_command.py:416} INFO - Running <TaskInstance: test-dag.read_csv_file manual__2023-12-07T03:28:49.239748+00:00 [running]> on host 22a1334ddaf4
+[2023-12-07T03:28:53.124+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='test-dag' AIRFLOW_CTX_TASK_ID='read_csv_file' AIRFLOW_CTX_EXECUTION_DATE='2023-12-07T03:28:49.239748+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-07T03:28:49.239748+00:00'
+[2023-12-07T03:28:53.130+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/GCS_to_BQ.py", line 50, in read_file
+    df = pd.read_csv(filepath)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/phunghongquan/Documents/semester5/DataWarehouse/northwind_gitRepo/northwind_gitRepo/tables/Customers.csv'
+[2023-12-07T03:28:53.146+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=test-dag, task_id=read_csv_file, execution_date=20231207T032849, start_date=20231207T032852, end_date=20231207T032853
+[2023-12-07T03:28:53.158+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 40 for task read_csv_file ([Errno 2] No such file or directory: '/Users/phunghongquan/Documents/semester5/DataWarehouse/northwind_gitRepo/northwind_gitRepo/tables/Customers.csv'; 1660)
+[2023-12-07T03:28:53.183+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-07T03:28:53.199+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

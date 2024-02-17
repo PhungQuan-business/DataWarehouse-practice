@@ -1,0 +1,48 @@
+[2024-01-17T12:35:19.445+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_date manual__2024-01-17T12:35:13.578491+00:00 [queued]>
+[2024-01-17T12:35:19.455+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_date manual__2024-01-17T12:35:13.578491+00:00 [queued]>
+[2024-01-17T12:35:19.456+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T12:35:19.473+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_date> on 2024-01-17 12:35:13.578491+00:00
+[2024-01-17T12:35:19.504+0000] {standard_task_runner.py:60} INFO - Started process 715 to run task
+[2024-01-17T12:35:19.514+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_date', 'manual__2024-01-17T12:35:13.578491+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpwic8_384']
+[2024-01-17T12:35:19.535+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask create_update_dim_date
+[2024-01-17T12:35:19.771+0000] {task_command.py:423} INFO - Running <TaskInstance: sql_example.create_update_dim_date manual__2024-01-17T12:35:13.578491+00:00 [running]> on host fafdf46f827b
+[2024-01-17T12:35:19.938+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_date' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T12:35:13.578491+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T12:35:13.578491+00:00'
+[2024-01-17T12:35:19.945+0000] {bigquery.py:1245} INFO - Executing: CREATE OR REPLACE TABLE `OLAP.Dim_Date` AS
+SELECT
+  date AS Date,
+  EXTRACT(YEAR FROM date) AS Year,
+  EXTRACT(MONTH FROM date) AS Month,
+  EXTRACT(DAY FROM date) AS Day,
+  FORMAT_DATE('%A', date) AS DayName,
+  EXTRACT(QUARTER FROM date) AS Quarter
+FROM UNNEST(GENERATE_DATE_ARRAY(
+  (SELECT MIN(CAST(OrderDate AS DATE)) FROM `OLTP.Orders`),  -- Cast OrderDate to DATE
+  (SELECT MAX(CAST(OrderDate AS DATE)) FROM `OLTP.Orders`),  -- Cast OrderDate to DATE
+  INTERVAL 1 DAY
+)) AS date;
+
+ALTER TABLE `OLAP.Dim_Date`
+ADD COLUMN IsWeekend BOOL;
+UPDATE `OLAP.Dim_Date`
+SET IsWeekend = 
+  CASE WHEN EXTRACT(DAYOFWEEK FROM Date) IN (1, 7) THEN TRUE ELSE FALSE END
+WHERE true;
+[2024-01-17T12:35:19.974+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1246, in execute
+    self.hook = BigQueryHook(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 118, in __init__
+    super().__init__(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 242, in __init__
+    self.extras: dict = self.get_connection(self.gcp_conn_id).extra_dejson
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 82, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 479, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2024-01-17T12:35:19.985+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=sql_example, task_id=create_update_dim_date, execution_date=20240117T123513, start_date=20240117T123519, end_date=20240117T123519
+[2024-01-17T12:35:20.003+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 5 for task create_update_dim_date (The conn_id `google_cloud_default` isn't defined; 715)
+[2024-01-17T12:35:20.053+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-01-17T12:35:20.089+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,17 @@
+[2023-12-07T03:02:54.349+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: upload_local_to_gcs_python.upload_files_to_gcs manual__2023-12-07T03:02:52.280187+00:00 [queued]>
+[2023-12-07T03:02:54.355+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: upload_local_to_gcs_python.upload_files_to_gcs manual__2023-12-07T03:02:52.280187+00:00 [queued]>
+[2023-12-07T03:02:54.355+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-07T03:02:54.365+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): upload_files_to_gcs> on 2023-12-07 03:02:52.280187+00:00
+[2023-12-07T03:02:54.371+0000] {standard_task_runner.py:57} INFO - Started process 473 to run task
+[2023-12-07T03:02:54.375+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'upload_local_to_gcs_python', 'upload_files_to_gcs', 'manual__2023-12-07T03:02:52.280187+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/local_to_GCS.py', '--cfg-path', '/tmp/tmpmxaii3uo']
+[2023-12-07T03:02:54.378+0000] {standard_task_runner.py:85} INFO - Job 38: Subtask upload_files_to_gcs
+[2023-12-07T03:02:54.418+0000] {task_command.py:416} INFO - Running <TaskInstance: upload_local_to_gcs_python.upload_files_to_gcs manual__2023-12-07T03:02:52.280187+00:00 [running]> on host 22a1334ddaf4
+[2023-12-07T03:02:54.480+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='your_owner' AIRFLOW_CTX_DAG_ID='upload_local_to_gcs_python' AIRFLOW_CTX_TASK_ID='upload_files_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-12-07T03:02:52.280187+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-07T03:02:52.280187+00:00'
+[2023-12-07T03:02:54.482+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-12-07T03:02:54.482+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'pwd']
+[2023-12-07T03:02:54.493+0000] {subprocess.py:86} INFO - Output:
+[2023-12-07T03:02:54.509+0000] {subprocess.py:93} INFO - /opt/***/dags
+[2023-12-07T03:02:54.509+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-12-07T03:02:54.529+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=upload_local_to_gcs_python, task_id=upload_files_to_gcs, execution_date=20231207T030252, start_date=20231207T030254, end_date=20231207T030254
+[2023-12-07T03:02:54.548+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-07T03:02:54.562+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

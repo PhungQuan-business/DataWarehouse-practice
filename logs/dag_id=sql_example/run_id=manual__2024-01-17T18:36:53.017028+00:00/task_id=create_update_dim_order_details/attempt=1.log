@@ -1,0 +1,58 @@
+[2024-01-17T18:36:57.954+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_order_details manual__2024-01-17T18:36:53.017028+00:00 [queued]>
+[2024-01-17T18:36:57.966+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_order_details manual__2024-01-17T18:36:53.017028+00:00 [queued]>
+[2024-01-17T18:36:57.966+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T18:36:57.988+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_order_details> on 2024-01-17 18:36:53.017028+00:00
+[2024-01-17T18:36:58.042+0000] {standard_task_runner.py:60} INFO - Started process 3062 to run task
+[2024-01-17T18:36:58.054+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_order_details', 'manual__2024-01-17T18:36:53.017028+00:00', '--job-id', '59', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpxc656_6t']
+[2024-01-17T18:36:58.066+0000] {standard_task_runner.py:88} INFO - Job 59: Subtask create_update_dim_order_details
+[2024-01-17T18:36:58.206+0000] {task_command.py:423} INFO - Running <TaskInstance: sql_example.create_update_dim_order_details manual__2024-01-17T18:36:53.017028+00:00 [running]> on host 0d972f4a0fb8
+[2024-01-17T18:36:58.485+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_order_details' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T18:36:53.017028+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T18:36:53.017028+00:00'
+[2024-01-17T18:36:58.496+0000] {bigquery.py:1245} INFO - Executing: -- Tạo bảng Dim_Order_details
+CREATE OR REPLACE TABLE 
+  `OLAP.Dim_Order_details` AS
+SELECT
+  *
+FROM
+  `OLTP.Order_details`
+
+
+[2024-01-17T18:36:58.521+0000] {connection.py:234} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-17T18:36:58.523+0000] {base.py:83} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-17T18:36:58.544+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2109 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-17T18:36:58.546+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-17T18:36:58.772+0000] {bigquery.py:1596} INFO - Inserting job ***_1705516618763839_dceac66a38d109de9e815a6a3f4c9818
+[2024-01-17T18:36:59.599+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1253, in execute
+    self.job_id = self.hook.run_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2242, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id, location=location)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 475, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1602, in insert_job
+    job_api_repr.result(timeout=timeout, retry=retry)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/query.py", line 1595, in result
+    do_get_result()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/query.py", line 1584, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/base.py", line 952, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 2.1 - 7.22: Unrecognized token CREATE.
+[Try using standard SQL (https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql)]
+
+Location: us-central1
+Job ID: airflow_1705516618763839_dceac66a38d109de9e815a6a3f4c9818
+
+[2024-01-17T18:36:59.748+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=sql_example, task_id=create_update_dim_order_details, execution_date=20240117T183653, start_date=20240117T183657, end_date=20240117T183659
+[2024-01-17T18:36:59.992+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 59 for task create_update_dim_order_details (400 2.1 - 7.22: Unrecognized token CREATE.
+[Try using standard SQL (https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql)]
+
+Location: us-central1
+Job ID: airflow_1705516618763839_dceac66a38d109de9e815a6a3f4c9818
+; 3062)
+[2024-01-17T18:37:00.063+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-01-17T18:37:00.207+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

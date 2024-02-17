@@ -1,0 +1,16 @@
+[2024-01-17T18:46:01.704+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: OLTP_to_OLAP.delay_bash_task manual__2024-01-17T18:45:35.666912+00:00 [queued]>
+[2024-01-17T18:46:01.718+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: OLTP_to_OLAP.delay_bash_task manual__2024-01-17T18:45:35.666912+00:00 [queued]>
+[2024-01-17T18:46:01.718+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T18:46:01.732+0000] {taskinstance.py:2192} INFO - Executing <Task(BashOperator): delay_bash_task> on 2024-01-17 18:45:35.666912+00:00
+[2024-01-17T18:46:01.750+0000] {standard_task_runner.py:60} INFO - Started process 3923 to run task
+[2024-01-17T18:46:01.756+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'OLTP_to_OLAP', 'delay_bash_task', 'manual__2024-01-17T18:45:35.666912+00:00', '--job-id', '66', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpcjqil29n']
+[2024-01-17T18:46:01.761+0000] {standard_task_runner.py:88} INFO - Job 66: Subtask delay_bash_task
+[2024-01-17T18:46:01.815+0000] {task_command.py:423} INFO - Running <TaskInstance: OLTP_to_OLAP.delay_bash_task manual__2024-01-17T18:45:35.666912+00:00 [running]> on host 0d972f4a0fb8
+[2024-01-17T18:46:01.915+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='OLTP_to_OLAP' AIRFLOW_CTX_TASK_ID='delay_bash_task' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T18:45:35.666912+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T18:45:35.666912+00:00'
+[2024-01-17T18:46:01.920+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-01-17T18:46:01.922+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'sleep 5s']
+[2024-01-17T18:46:01.957+0000] {subprocess.py:86} INFO - Output:
+[2024-01-17T18:46:06.981+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-01-17T18:46:07.033+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=OLTP_to_OLAP, task_id=delay_bash_task, execution_date=20240117T184535, start_date=20240117T184601, end_date=20240117T184607
+[2024-01-17T18:46:07.100+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-01-17T18:46:07.144+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

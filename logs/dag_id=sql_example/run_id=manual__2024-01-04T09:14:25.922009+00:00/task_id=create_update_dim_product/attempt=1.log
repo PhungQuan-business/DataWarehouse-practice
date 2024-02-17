@@ -1,0 +1,54 @@
+[2024-01-04T09:14:55.716+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_product manual__2024-01-04T09:14:25.922009+00:00 [queued]>
+[2024-01-04T09:14:55.724+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_product manual__2024-01-04T09:14:25.922009+00:00 [queued]>
+[2024-01-04T09:14:55.724+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-04T09:14:55.735+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_product> on 2024-01-04 09:14:25.922009+00:00
+[2024-01-04T09:14:55.750+0000] {standard_task_runner.py:57} INFO - Started process 14255 to run task
+[2024-01-04T09:14:55.756+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_product', 'manual__2024-01-04T09:14:25.922009+00:00', '--job-id', '224', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpvf63z3w1']
+[2024-01-04T09:14:55.766+0000] {standard_task_runner.py:85} INFO - Job 224: Subtask create_update_dim_product
+[2024-01-04T09:14:55.813+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.create_update_dim_product manual__2024-01-04T09:14:25.922009+00:00 [running]> on host 812d78d3a260
+[2024-01-04T09:14:55.902+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_product' AIRFLOW_CTX_EXECUTION_DATE='2024-01-04T09:14:25.922009+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-04T09:14:25.922009+00:00'
+[2024-01-04T09:14:55.904+0000] {bigquery.py:1241} INFO - Executing:   -- Query for creating Dim_Supllier (SCD 1)
+CREATE OR REPLACE TABLE
+  `northwind-qu.Transformed_Dataset.Dim_Suppliers` AS
+SELECT
+  *
+FROM
+  `northwind-qu.test_dataset.Suppliers`;
+
+  -- Query for creating Dim_Category(SCD 1)
+CREATE OR REPLACE TABLE
+  `northwind-qu.Transformed_Dataset.Dim_Categories` AS
+SELECT
+  *
+FROM
+  `northwind-qu.test_dataset.Categories`;
+
+  -- Query for creating Dim_Products(SCD 1)
+CREATE OR REPLACE TABLE
+  `northwind-qu.Transformed_Dataset.Dim_Products` AS
+SELECT
+  t1.ProductName,
+  t1.QuantityPerUnit,
+  t1.UnitPrice,
+  t1.UnitsInStock,
+  t1.UnitsOnOrder,
+  t1.ReorderLevel,
+  t1.Discontinued,
+  t2.CategoryName,
+  t2.Description
+FROM
+  `northwind-qu.test_dataset.Products` t1
+LEFT JOIN
+  `northwind-qu.test_dataset.Categories` t2
+ON
+  t1.CategoryID = t2.CategoryID;
+-- Query for creating Dim_Date(SCD 1)
+-- Continue from here
+[2024-01-04T09:14:55.913+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-04T09:14:55.914+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-04T09:14:55.920+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-04T09:14:55.921+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-04T09:14:55.998+0000] {bigquery.py:1595} INFO - Inserting job ***_1704359695997935_9656ef57bccb22d6faee685e7490ccdd
+[2024-01-04T09:15:02.690+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_dim_product, execution_date=20240104T091425, start_date=20240104T091455, end_date=20240104T091502
+[2024-01-04T09:15:02.735+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-04T09:15:02.760+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

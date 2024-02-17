@@ -1,0 +1,73 @@
+[2024-01-09T07:00:17.692+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_fact_order scheduled__2024-01-07T00:00:00+00:00 [queued]>
+[2024-01-09T07:00:17.721+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_fact_order scheduled__2024-01-07T00:00:00+00:00 [queued]>
+[2024-01-09T07:00:17.727+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-09T07:00:17.893+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_fact_order> on 2024-01-07 00:00:00+00:00
+[2024-01-09T07:00:17.913+0000] {standard_task_runner.py:57} INFO - Started process 257 to run task
+[2024-01-09T07:00:17.989+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_fact_order', 'scheduled__2024-01-07T00:00:00+00:00', '--job-id', '241', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmp35wrnpb1']
+[2024-01-09T07:00:18.023+0000] {standard_task_runner.py:85} INFO - Job 241: Subtask create_update_fact_order
+[2024-01-09T07:00:18.220+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.create_update_fact_order scheduled__2024-01-07T00:00:00+00:00 [running]> on host 812d78d3a260
+[2024-01-09T07:00:18.606+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_fact_order' AIRFLOW_CTX_EXECUTION_DATE='2024-01-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-07T00:00:00+00:00'
+[2024-01-09T07:00:18.611+0000] {bigquery.py:1241} INFO - Executing: IF NOT EXISTS (
+  SELECT 1
+  FROM `OLAP.INFORMATION_SCHEMA.TABLES`
+  WHERE TABLE_NAME = 'Fact_Order'
+)
+THEN
+  CREATE OR REPLACE TABLE `OLAP.Fact_Order` AS 
+  SELECT
+    Order_details.OrderID,
+    Order_details.ProductID,
+    Orders.CustomerID,
+    Orders.OrderDate,
+    Order_details.UnitPrice,
+    Order_details.Quantity,
+    Order_details.Discount,
+  FROM 
+    `OLTP.Order_details` as Order_details
+  JOIN
+    `OLTP.Orders` as Orders
+  ON
+    Order_details.OrderID = Orders.OrderID;
+  END IF;
+
+IF NOT EXISTS (
+  SELECT 1
+  FROM `OLAP`.INFORMATION_SCHEMA.COLUMNS
+  WHERE TABLE_NAME = 'Fact_Order'
+    AND (
+      COLUMN_NAME = 'Revenue'
+      OR COLUMN_NAME = 'Discount_Money'
+    )
+)
+-- adding missing columns to Fact_Order table
+THEN
+  EXECUTE IMMEDIATE 'ALTER TABLE `OLAP.Fact_Order` ADD COLUMN Revenue FLOAT64';
+  EXECUTE IMMEDIATE 'ALTER TABLE `OLAP.Fact_Order` ADD COLUMN Discount_Money FLOAT64';
+END IF;
+
+UPDATE `OLAP.Fact_Order` AS fact
+SET OrderDate = `OLTP.Orders`.OrderDate
+FROM `OLTP.Orders` 
+WHERE fact.OrderID = `OLTP.Orders`.OrderID;
+
+UPDATE `OLAP.Fact_Order` AS fact
+SET Revenue = fact.UnitPrice*fact.Quantity*(1-fact.Discount)
+WHERE true;
+
+UPDATE `OLAP.Fact_Order` AS fact
+SET Discount_Money = fact.UnitPrice*fact.Quantity*fact.Discount
+WHERE true;
+
+
+
+
+
+
+[2024-01-09T07:00:18.635+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-09T07:00:18.638+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-09T07:00:18.664+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-09T07:00:18.670+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-09T07:00:18.869+0000] {bigquery.py:1595} INFO - Inserting job ***_1704783618865442_36ceb930dabb7b2f43bec5afc55a71ba
+[2024-01-09T07:00:53.326+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_fact_order, execution_date=20240107T000000, start_date=20240109T070017, end_date=20240109T070053
+[2024-01-09T07:00:53.409+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-09T07:00:53.448+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

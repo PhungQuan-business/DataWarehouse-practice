@@ -1,0 +1,49 @@
+[2024-01-17T13:59:19.778+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_rfm_agg manual__2024-01-17T13:58:37.009006+00:00 [queued]>
+[2024-01-17T13:59:19.802+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_rfm_agg manual__2024-01-17T13:58:37.009006+00:00 [queued]>
+[2024-01-17T13:59:19.802+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T13:59:19.834+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_rfm_agg> on 2024-01-17 13:58:37.009006+00:00
+[2024-01-17T13:59:19.893+0000] {standard_task_runner.py:60} INFO - Started process 7665 to run task
+[2024-01-17T13:59:19.916+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_rfm_agg', 'manual__2024-01-17T13:58:37.009006+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpy4ulbf5b']
+[2024-01-17T13:59:19.932+0000] {standard_task_runner.py:88} INFO - Job 49: Subtask create_update_rfm_agg
+[2024-01-17T13:59:20.319+0000] {task_command.py:423} INFO - Running <TaskInstance: sql_example.create_update_rfm_agg manual__2024-01-17T13:58:37.009006+00:00 [running]> on host fafdf46f827b
+[2024-01-17T13:59:20.587+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_rfm_agg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T13:58:37.009006+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T13:58:37.009006+00:00'
+[2024-01-17T13:59:20.591+0000] {bigquery.py:1245} INFO - Executing: DECLARE today_date DATE DEFAULT '1998-05-06';
+DECLARE frequencyRange INT64 DEFAULT 180; # tùy chỉnh 
+
+CREATE OR REPLACE TABLE `OLAP.CustomerRFM_Aggregation` AS
+WITH CustomerRFM_Aggregation AS (
+  SELECT
+    orders.CustomerID,
+    MAX(CAST(orders.OrderDate AS DATE)) AS Recency,
+    -- COUNT(DISTINCT o.OrderID) AS Frequency,
+    COUNTIF(DATE_DIFF(today_date, CAST(OrderDate AS DATE), DAY) <= frequencyRange) / frequencyRange AS Frequency,
+    SUM(order_details.Quantity * order_details.UnitPrice * (1 - order_details.Discount)) AS Monetary,
+    COUNT(DISTINCT orders.OrderID) AS Total_Transaction,
+    SUM(order_details.Discount) AS Total_Discount
+  FROM
+    `OLTP.Orders` orders
+  JOIN
+    `OLAP.Dim_Order_details` order_details 
+  ON 
+    orders.OrderID = order_details.OrderID
+  GROUP BY
+    orders.CustomerID
+)
+
+SELECT
+  CustomerID,
+  DATE_DIFF(today_date, Recency, DAY) AS Recency,
+  Frequency,
+  Monetary,
+  Total_Transaction,
+  Total_Discount
+FROM
+  CustomerRFM_Aggregation;
+[2024-01-17T13:59:20.616+0000] {connection.py:234} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-17T13:59:20.619+0000] {base.py:83} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-17T13:59:20.651+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2109 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-17T13:59:20.652+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-17T13:59:20.808+0000] {bigquery.py:1596} INFO - Inserting job ***_1705499960804350_1f9c142dd6a2de1027dbffb7505b0ec8
+[2024-01-17T13:59:23.857+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_rfm_agg, execution_date=20240117T135837, start_date=20240117T135919, end_date=20240117T135923
+[2024-01-17T13:59:23.940+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-01-17T13:59:23.992+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

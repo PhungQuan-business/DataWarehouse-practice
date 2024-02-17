@@ -1,0 +1,308 @@
+[2024-01-06T04:26:29.935+0000] {processor.py:157} INFO - Started process (PID=30233) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T04:26:29.938+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T04:26:29.950+0000] {logging_mixin.py:154} INFO - [2024-01-06T04:26:29.947+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T04:26:31.431+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T04:26:31.532+0000] {logging_mixin.py:154} INFO - [2024-01-06T04:26:31.532+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T04:26:31.565+0000] {logging_mixin.py:154} INFO - [2024-01-06T04:26:31.565+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T04:26:31.599+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.674 seconds
+[2024-01-06T06:24:18.444+0000] {processor.py:157} INFO - Started process (PID=30292) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:24:18.454+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:24:18.473+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:24:18.471+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:24:19.824+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:24:19.891+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:24:19.891+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:24:19.935+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:24:19.935+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:24:19.955+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.551 seconds
+[2024-01-06T06:56:56.761+0000] {processor.py:157} INFO - Started process (PID=30331) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:56:56.763+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:56:56.770+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:56:56.769+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:56:58.370+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:56:58.447+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:56:58.446+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:56:58.477+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:56:58.476+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:56:58.521+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.766 seconds
+[2024-01-06T06:57:29.068+0000] {processor.py:157} INFO - Started process (PID=30390) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:57:29.070+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:57:29.073+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:57:29.073+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:57:29.713+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:57:29.751+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:57:29.751+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:57:29.776+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:57:29.775+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:57:29.790+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.726 seconds
+[2024-01-06T06:58:00.527+0000] {processor.py:157} INFO - Started process (PID=30429) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:58:00.529+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:58:00.532+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:58:00.532+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:58:01.179+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:58:01.215+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:58:01.215+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:58:01.239+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:58:01.238+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:58:01.252+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.729 seconds
+[2024-01-06T06:58:31.929+0000] {processor.py:157} INFO - Started process (PID=30468) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:58:31.931+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:58:31.934+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:58:31.933+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:58:32.560+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:58:32.622+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:58:32.621+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:58:32.665+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:58:32.665+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:58:32.687+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.763 seconds
+[2024-01-06T06:59:03.425+0000] {processor.py:157} INFO - Started process (PID=30507) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:59:03.428+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:59:03.431+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:59:03.431+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:59:03.992+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:59:04.019+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:59:04.019+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:59:04.052+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:59:04.051+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:59:04.066+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.646 seconds
+[2024-01-06T06:59:34.786+0000] {processor.py:157} INFO - Started process (PID=30546) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:59:34.789+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T06:59:34.802+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:59:34.800+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:59:35.490+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T06:59:35.547+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:59:35.546+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T06:59:35.572+0000] {logging_mixin.py:154} INFO - [2024-01-06T06:59:35.572+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T06:59:35.588+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.812 seconds
+[2024-01-06T07:00:06.281+0000] {processor.py:157} INFO - Started process (PID=30585) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:00:06.284+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:00:06.290+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:00:06.290+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:00:06.949+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:00:07.022+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:00:07.021+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:00:07.064+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:00:07.063+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:00:07.082+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.810 seconds
+[2024-01-06T07:00:37.854+0000] {processor.py:157} INFO - Started process (PID=30624) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:00:37.857+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:00:37.863+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:00:37.863+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:00:38.419+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:00:38.454+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:00:38.453+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:00:38.475+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:00:38.475+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:00:38.489+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.642 seconds
+[2024-01-06T07:01:09.182+0000] {processor.py:157} INFO - Started process (PID=30663) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:01:09.184+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:01:09.190+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:01:09.189+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:01:09.928+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:01:09.969+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:01:09.968+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:01:09.993+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:01:09.992+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:01:10.009+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.833 seconds
+[2024-01-06T07:01:40.817+0000] {processor.py:157} INFO - Started process (PID=30702) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:01:40.820+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:01:40.825+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:01:40.825+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:01:41.428+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:01:41.464+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:01:41.464+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:01:41.488+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:01:41.488+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:01:41.504+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.693 seconds
+[2024-01-06T07:02:12.273+0000] {processor.py:157} INFO - Started process (PID=30741) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:02:12.277+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:02:12.281+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:02:12.281+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:02:12.969+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:02:13.008+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:02:13.008+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:02:13.034+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:02:13.034+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:02:13.050+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.783 seconds
+[2024-01-06T07:02:43.723+0000] {processor.py:157} INFO - Started process (PID=30780) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:02:43.728+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:02:43.734+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:02:43.733+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:02:44.467+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:02:44.506+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:02:44.506+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:02:44.548+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:02:44.548+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:02:44.563+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.848 seconds
+[2024-01-06T07:03:15.174+0000] {processor.py:157} INFO - Started process (PID=30819) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:03:15.176+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:03:15.181+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:03:15.180+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:03:15.811+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:03:15.841+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:03:15.841+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:03:15.862+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:03:15.862+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:03:15.876+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.707 seconds
+[2024-01-06T07:03:46.642+0000] {processor.py:157} INFO - Started process (PID=30858) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:03:46.650+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:03:46.663+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:03:46.663+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:03:47.297+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:03:47.335+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:03:47.334+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:03:47.366+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:03:47.366+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:03:47.388+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.761 seconds
+[2024-01-06T07:04:18.129+0000] {processor.py:157} INFO - Started process (PID=30905) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:04:18.136+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:04:18.143+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:04:18.142+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:04:18.775+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:04:18.816+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:04:18.816+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:04:18.840+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:04:18.840+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:04:18.855+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.739 seconds
+[2024-01-06T07:04:49.572+0000] {processor.py:157} INFO - Started process (PID=30944) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:04:49.575+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:04:49.581+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:04:49.580+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:04:50.203+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:04:50.253+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:04:50.253+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:04:50.278+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:04:50.278+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:04:50.293+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.728 seconds
+[2024-01-06T07:05:21.148+0000] {processor.py:157} INFO - Started process (PID=30983) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:05:21.151+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:05:21.159+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:05:21.158+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:05:21.805+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:05:21.845+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:05:21.845+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:05:21.869+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:05:21.869+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:05:21.883+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.746 seconds
+[2024-01-06T07:05:52.599+0000] {processor.py:157} INFO - Started process (PID=31022) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:05:52.601+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:05:52.608+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:05:52.607+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:05:53.228+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:05:53.271+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:05:53.271+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:05:53.304+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:05:53.304+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:05:53.320+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.727 seconds
+[2024-01-06T07:06:24.213+0000] {processor.py:157} INFO - Started process (PID=31061) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:06:24.216+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:06:24.223+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:06:24.223+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:06:24.925+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:06:24.969+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:06:24.969+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:06:25.023+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:06:25.022+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:06:25.041+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.844 seconds
+[2024-01-06T07:06:55.853+0000] {processor.py:157} INFO - Started process (PID=31100) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:06:55.856+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:06:55.863+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:06:55.863+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:06:56.478+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:06:56.512+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:06:56.512+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:06:56.534+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:06:56.534+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:06:56.554+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.730 seconds
+[2024-01-06T07:07:27.218+0000] {processor.py:157} INFO - Started process (PID=31139) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:07:27.221+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:07:27.227+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:07:27.227+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:07:27.813+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:07:27.856+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:07:27.856+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:07:27.879+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:07:27.879+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:07:27.895+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.687 seconds
+[2024-01-06T07:07:58.516+0000] {processor.py:157} INFO - Started process (PID=31178) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:07:58.518+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:07:58.526+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:07:58.525+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:07:59.097+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:07:59.132+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:07:59.132+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:07:59.155+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:07:59.155+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:07:59.169+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.679 seconds
+[2024-01-06T07:08:29.860+0000] {processor.py:157} INFO - Started process (PID=31217) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:08:29.865+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:08:29.872+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:08:29.871+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:08:30.508+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:08:30.564+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:08:30.563+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:08:30.588+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:08:30.588+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:08:30.604+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.764 seconds
+[2024-01-06T07:09:01.323+0000] {processor.py:157} INFO - Started process (PID=31256) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:09:01.327+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:09:01.334+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:09:01.333+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:09:02.002+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:09:02.049+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:09:02.048+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:09:02.089+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:09:02.089+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:09:02.109+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.796 seconds
+[2024-01-06T07:09:32.824+0000] {processor.py:157} INFO - Started process (PID=31295) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:09:32.826+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:09:32.833+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:09:32.832+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:09:33.528+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:09:33.561+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:09:33.561+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:09:33.588+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:09:33.588+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:09:33.605+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.788 seconds
+[2024-01-06T07:10:04.229+0000] {processor.py:157} INFO - Started process (PID=31334) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:10:04.232+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:10:04.239+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:10:04.238+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:10:04.839+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:10:04.874+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:10:04.873+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:10:04.897+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:10:04.897+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:10:04.913+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.691 seconds
+[2024-01-06T07:10:35.622+0000] {processor.py:157} INFO - Started process (PID=31373) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:10:35.625+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:10:35.632+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:10:35.631+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:10:36.198+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:10:36.241+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:10:36.240+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:10:36.264+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:10:36.264+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:10:36.278+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.663 seconds
+[2024-01-06T07:11:07.015+0000] {processor.py:157} INFO - Started process (PID=31412) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:11:07.019+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:11:07.026+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:11:07.025+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:11:07.707+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:11:07.752+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:11:07.752+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:11:07.784+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:11:07.783+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:11:07.807+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.800 seconds
+[2024-01-06T07:11:38.706+0000] {processor.py:157} INFO - Started process (PID=31451) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:11:38.708+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:11:38.716+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:11:38.715+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:11:39.275+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:11:39.313+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:11:39.313+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:11:39.351+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:11:39.351+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:11:39.368+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.677 seconds
+[2024-01-06T07:12:10.066+0000] {processor.py:157} INFO - Started process (PID=31490) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:12:10.068+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:12:10.075+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:12:10.074+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:12:10.666+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:12:10.698+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:12:10.698+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:12:10.720+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:12:10.720+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:12:10.734+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.673 seconds
+[2024-01-06T07:12:41.286+0000] {processor.py:157} INFO - Started process (PID=31529) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:12:41.292+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:12:41.309+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:12:41.307+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:12:41.872+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:12:41.903+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:12:41.903+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:12:41.926+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:12:41.926+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:12:41.940+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.667 seconds
+[2024-01-06T07:13:12.075+0000] {processor.py:157} INFO - Started process (PID=31568) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:13:12.078+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:13:12.086+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:13:12.085+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:13:12.659+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:13:12.687+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:13:12.686+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:13:12.709+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:13:12.708+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:13:12.722+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.654 seconds
+[2024-01-06T07:13:42.951+0000] {processor.py:157} INFO - Started process (PID=31607) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:13:42.955+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:13:42.984+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:13:42.981+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:13:43.599+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:13:43.630+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:13:43.630+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:13:43.669+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:13:43.669+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:13:43.685+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.752 seconds
+[2024-01-06T07:14:14.013+0000] {processor.py:157} INFO - Started process (PID=31666) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:14:14.014+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:14:14.016+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:14:14.015+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:14:14.588+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:14:14.617+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:14:14.617+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:14:14.638+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:14:14.638+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:14:14.653+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.644 seconds
+[2024-01-06T07:14:45.268+0000] {processor.py:157} INFO - Started process (PID=31705) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:14:45.269+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:14:45.273+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:14:45.272+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:14:45.893+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:14:45.945+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:14:45.945+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:14:45.971+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:14:45.971+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:14:45.990+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.727 seconds
+[2024-01-06T07:15:16.642+0000] {processor.py:157} INFO - Started process (PID=31744) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:15:16.644+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:15:16.647+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:15:16.646+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:15:17.168+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:15:17.197+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:15:17.197+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:15:17.220+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:15:17.219+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:15:17.234+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.596 seconds
+[2024-01-06T07:15:47.883+0000] {processor.py:157} INFO - Started process (PID=31783) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:15:47.886+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:15:47.889+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:15:47.889+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:15:48.428+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:15:48.462+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:15:48.461+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:15:48.484+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:15:48.484+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:15:48.499+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.620 seconds
+[2024-01-06T07:16:19.160+0000] {processor.py:157} INFO - Started process (PID=31822) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:16:19.162+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:16:19.167+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:16:19.166+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:16:19.765+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:16:19.801+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:16:19.801+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:16:19.826+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:16:19.826+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:16:19.841+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.687 seconds
+[2024-01-06T07:16:50.464+0000] {processor.py:157} INFO - Started process (PID=31868) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:16:50.466+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:16:50.469+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:16:50.468+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:16:51.099+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:16:51.135+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:16:51.135+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:16:51.174+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:16:51.173+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:16:51.200+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.740 seconds
+[2024-01-06T07:17:21.850+0000] {processor.py:157} INFO - Started process (PID=31907) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:17:21.851+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:17:21.855+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:17:21.854+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:17:22.371+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:17:22.402+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:17:22.402+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:17:22.436+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:17:22.436+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:17:22.450+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.605 seconds
+[2024-01-06T07:17:53.056+0000] {processor.py:157} INFO - Started process (PID=31946) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:17:53.057+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:17:53.059+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:17:53.059+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:17:53.548+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:17:53.574+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:17:53.573+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:17:53.593+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:17:53.593+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:17:53.608+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.555 seconds
+[2024-01-06T07:18:24.172+0000] {processor.py:157} INFO - Started process (PID=31985) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:18:24.175+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-01-06T07:18:24.178+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:18:24.178+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:18:24.678+0000] {processor.py:839} INFO - DAG(s) dict_keys(['sql_example']) retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-01-06T07:18:24.710+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:18:24.710+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2024-01-06T07:18:24.732+0000] {logging_mixin.py:154} INFO - [2024-01-06T07:18:24.731+0000] {dag.py:3722} INFO - Setting next_dagrun for sql_example to 2024-01-06T00:00:00+00:00, run_after=2024-01-07T00:00:00+00:00
+[2024-01-06T07:18:24.746+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.579 seconds

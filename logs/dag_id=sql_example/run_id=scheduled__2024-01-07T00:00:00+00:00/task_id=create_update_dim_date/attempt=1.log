@@ -1,0 +1,65 @@
+[2024-01-09T07:00:17.721+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_date scheduled__2024-01-07T00:00:00+00:00 [queued]>
+[2024-01-09T07:00:17.760+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_date scheduled__2024-01-07T00:00:00+00:00 [queued]>
+[2024-01-09T07:00:17.763+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-09T07:00:17.877+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_date> on 2024-01-07 00:00:00+00:00
+[2024-01-09T07:00:17.907+0000] {standard_task_runner.py:57} INFO - Started process 252 to run task
+[2024-01-09T07:00:17.942+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_date', 'scheduled__2024-01-07T00:00:00+00:00', '--job-id', '242', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpo2s6xhrj']
+[2024-01-09T07:00:17.994+0000] {standard_task_runner.py:85} INFO - Job 242: Subtask create_update_dim_date
+[2024-01-09T07:00:18.186+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.create_update_dim_date scheduled__2024-01-07T00:00:00+00:00 [running]> on host 812d78d3a260
+[2024-01-09T07:00:18.563+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_date' AIRFLOW_CTX_EXECUTION_DATE='2024-01-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-07T00:00:00+00:00'
+[2024-01-09T07:00:18.570+0000] {bigquery.py:1241} INFO - Executing: CREATE OR REPLACE TABLE `OLAP.Dim_Date` AS
+SELECT
+  date AS Date,
+  EXTRACT(YEAR FROM date) AS Year,
+  EXTRACT(MONTH FROM date) AS Month,
+  EXTRACT(DAY FROM date) AS Day,
+  FORMAT_DATE('%A', date) AS DayName,
+  EXTRACT(QUARTER FROM date) AS Quarter
+FROM UNNEST(GENERATE_DATE_ARRAY(
+  (SELECT MIN(CAST(OrderDate AS DATE)) FROM `OLAP.Fact_Order`),  -- Cast OrderDate to DATE
+  (SELECT MAX(CAST(OrderDate AS DATE)) FROM `OLAP.Fact_Order`),  -- Cast OrderDate to DATE
+  INTERVAL 1 DAY
+)) AS date;
+
+ALTER TABLE `OLAP.Dim_Date`
+ADD COLUMN IsWeekend BOOL;
+UPDATE `OLAP.Dim_Date`
+SET IsWeekend = 
+  CASE WHEN EXTRACT(DAYOFWEEK FROM Date) IN (1, 7) THEN TRUE ELSE FALSE END
+WHERE true;
+[2024-01-09T07:00:18.614+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-09T07:00:18.619+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-09T07:00:18.634+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-09T07:00:18.636+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-09T07:00:18.844+0000] {bigquery.py:1595} INFO - Inserting job ***_1704783618820126_1fa65a70741d886c86179df462929ea1
+[2024-01-09T07:00:23.013+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1249, in execute
+    self.job_id = self.hook.run_query(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2241, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id, location=location)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 475, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1601, in insert_job
+    job_api_repr.result(timeout=timeout, retry=retry)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/query.py", line 1580, in result
+    do_get_result()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/query.py", line 1570, in do_get_result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/bigquery/job/base.py", line 922, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 Invalid value: Column `IsWeekend` already exists in table `Dim_Date`. at [15:1]
+
+Location: us-central1
+Job ID: airflow_1704783618820126_1fa65a70741d886c86179df462929ea1
+
+[2024-01-09T07:00:23.096+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=sql_example, task_id=create_update_dim_date, execution_date=20240107T000000, start_date=20240109T070017, end_date=20240109T070023
+[2024-01-09T07:00:23.145+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 242 for task create_update_dim_date (400 Invalid value: Column `IsWeekend` already exists in table `Dim_Date`. at [15:1]
+
+Location: us-central1
+Job ID: airflow_1704783618820126_1fa65a70741d886c86179df462929ea1
+; 252)
+[2024-01-09T07:00:23.193+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-01-09T07:00:23.257+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

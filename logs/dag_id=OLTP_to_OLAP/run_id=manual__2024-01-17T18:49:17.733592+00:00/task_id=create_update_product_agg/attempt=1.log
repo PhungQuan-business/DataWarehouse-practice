@@ -1,0 +1,68 @@
+[2024-01-17T18:49:49.876+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: OLTP_to_OLAP.create_update_product_agg manual__2024-01-17T18:49:17.733592+00:00 [queued]>
+[2024-01-17T18:49:49.886+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: OLTP_to_OLAP.create_update_product_agg manual__2024-01-17T18:49:17.733592+00:00 [queued]>
+[2024-01-17T18:49:49.890+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T18:49:49.930+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_product_agg> on 2024-01-17 18:49:17.733592+00:00
+[2024-01-17T18:49:49.964+0000] {standard_task_runner.py:60} INFO - Started process 4341 to run task
+[2024-01-17T18:49:49.982+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'OLTP_to_OLAP', 'create_update_product_agg', 'manual__2024-01-17T18:49:17.733592+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpb581oau6']
+[2024-01-17T18:49:50.006+0000] {standard_task_runner.py:88} INFO - Job 79: Subtask create_update_product_agg
+[2024-01-17T18:49:50.215+0000] {task_command.py:423} INFO - Running <TaskInstance: OLTP_to_OLAP.create_update_product_agg manual__2024-01-17T18:49:17.733592+00:00 [running]> on host 0d972f4a0fb8
+[2024-01-17T18:49:50.359+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='OLTP_to_OLAP' AIRFLOW_CTX_TASK_ID='create_update_product_agg' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T18:49:17.733592+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T18:49:17.733592+00:00'
+[2024-01-17T18:49:50.369+0000] {bigquery.py:1245} INFO - Executing: -- Step 1: Create the Product_Aggregation table
+CREATE OR REPLACE TABLE `OLAP.Product_Aggregation` AS
+  SELECT
+    order_details.ProductID,
+    0 as High_productive_product,
+    0.0 As Total_sale_by_product
+  FROM
+    `OLAP.Dim_Order_details` order_details 
+  GROUP BY
+    order_details.ProductID
+;
+
+
+UPDATE `OLAP.Product_Aggregation` AS dim
+SET Total_sale_by_product = (
+    SELECT SUM(UnitPrice*Quantity*(1-Discount))
+    FROM `OLAP.Dim_Order_details` AS fact
+    WHERE dim.ProductID = fact.ProductID
+    Group by ProductID
+)
+WHERE dim.ProductID IS NOT NULL;
+
+-- Step 2: Create the temporary table to store the results
+CREATE OR REPLACE TABLE `OLAP.Temp_RankedProducts` AS
+WITH RankedProducts AS (
+    SELECT 
+        ProductID,
+        Total_sale_by_product AS Total_sale_by_product,
+        PERCENT_RANK() OVER (ORDER BY Total_sale_by_product DESC) AS PercentRank
+    FROM `OLAP.Product_Aggregation`
+)
+SELECT 
+    ProductID,
+    Total_sale_by_product,
+    CASE 
+        WHEN PercentRank <= 0.8 THEN 1  
+        ELSE 0  
+    END AS ContributesTo80Percent
+FROM RankedProducts;
+
+-- Step 3: Update the Product_Aggregation table using MERGE
+MERGE `OLAP.Product_Aggregation` AS target
+USING `OLAP.Temp_RankedProducts` AS source
+ON target.ProductID = source.ProductID
+WHEN MATCHED THEN
+  UPDATE SET target.High_productive_product = source.ContributesTo80Percent;
+
+-- Step 4: Drop the temporary table
+DROP TABLE `OLAP.Temp_RankedProducts`;
+
+
+[2024-01-17T18:49:50.385+0000] {connection.py:234} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-17T18:49:50.387+0000] {base.py:83} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-17T18:49:50.397+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2109 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-17T18:49:50.398+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-17T18:49:50.493+0000] {bigquery.py:1596} INFO - Inserting job ***_1705517390492046_62f8103b7b97a35932b23821bbeffd77
+[2024-01-17T18:49:59.043+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=OLTP_to_OLAP, task_id=create_update_product_agg, execution_date=20240117T184917, start_date=20240117T184949, end_date=20240117T184959
+[2024-01-17T18:49:59.239+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-01-17T18:49:59.341+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

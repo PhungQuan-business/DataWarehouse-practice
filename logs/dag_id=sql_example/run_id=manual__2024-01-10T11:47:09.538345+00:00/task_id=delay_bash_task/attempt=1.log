@@ -1,0 +1,16 @@
+[2024-01-10T11:47:29.159+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.delay_bash_task manual__2024-01-10T11:47:09.538345+00:00 [queued]>
+[2024-01-10T11:47:29.171+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.delay_bash_task manual__2024-01-10T11:47:09.538345+00:00 [queued]>
+[2024-01-10T11:47:29.171+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-10T11:47:29.192+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): delay_bash_task> on 2024-01-10 11:47:09.538345+00:00
+[2024-01-10T11:47:29.205+0000] {standard_task_runner.py:57} INFO - Started process 45331 to run task
+[2024-01-10T11:47:29.209+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'delay_bash_task', 'manual__2024-01-10T11:47:09.538345+00:00', '--job-id', '279', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpkk4u1gvq']
+[2024-01-10T11:47:29.214+0000] {standard_task_runner.py:85} INFO - Job 279: Subtask delay_bash_task
+[2024-01-10T11:47:29.261+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.delay_bash_task manual__2024-01-10T11:47:09.538345+00:00 [running]> on host 812d78d3a260
+[2024-01-10T11:47:29.333+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='delay_bash_task' AIRFLOW_CTX_EXECUTION_DATE='2024-01-10T11:47:09.538345+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-10T11:47:09.538345+00:00'
+[2024-01-10T11:47:29.335+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-01-10T11:47:29.336+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'sleep 5s']
+[2024-01-10T11:47:29.357+0000] {subprocess.py:86} INFO - Output:
+[2024-01-10T11:47:34.371+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-01-10T11:47:34.416+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=delay_bash_task, execution_date=20240110T114709, start_date=20240110T114729, end_date=20240110T114734
+[2024-01-10T11:47:34.462+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-10T11:47:34.489+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

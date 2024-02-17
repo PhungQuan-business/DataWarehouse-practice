@@ -1,0 +1,29 @@
+[2023-12-08T04:11:29.794+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: upload_csv_to_gcs.upload_to_gcs manual__2023-12-08T04:11:27.957744+00:00 [queued]>
+[2023-12-08T04:11:29.800+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: upload_csv_to_gcs.upload_to_gcs manual__2023-12-08T04:11:27.957744+00:00 [queued]>
+[2023-12-08T04:11:29.801+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-08T04:11:29.810+0000] {taskinstance.py:1382} INFO - Executing <Task(LocalFilesystemToGCSOperator): upload_to_gcs> on 2023-12-08 04:11:27.957744+00:00
+[2023-12-08T04:11:29.822+0000] {standard_task_runner.py:57} INFO - Started process 11441 to run task
+[2023-12-08T04:11:29.825+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'upload_csv_to_gcs', 'upload_to_gcs', 'manual__2023-12-08T04:11:27.957744+00:00', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/local_to_GCS.py', '--cfg-path', '/tmp/tmpkpj1gtn6']
+[2023-12-08T04:11:29.829+0000] {standard_task_runner.py:85} INFO - Job 60: Subtask upload_to_gcs
+[2023-12-08T04:11:29.884+0000] {task_command.py:416} INFO - Running <TaskInstance: upload_csv_to_gcs.upload_to_gcs manual__2023-12-08T04:11:27.957744+00:00 [running]> on host 3de6e37e1218
+[2023-12-08T04:11:29.973+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='upload_csv_to_gcs' AIRFLOW_CTX_TASK_ID='upload_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-12-08T04:11:27.957744+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-08T04:11:27.957744+00:00'
+[2023-12-08T04:11:29.999+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2023-12-08T04:11:30.027+0000] {base.py:73} INFO - Using connection ID 'google_cloud_datastore_default' for task execution.
+[2023-12-08T04:11:30.031+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2023-12-08T04:11:30.142+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/transfers/local_to_gcs.py", line 110, in execute
+    hook.upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 556, in upload
+    _call_with_retry(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 514, in _call_with_retry
+    f()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2926, in upload_from_filename
+    self._handle_filename_and_upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/blob.py", line 2794, in _handle_filename_and_upload
+    with open(filename, "rb") as file_obj:
+IsADirectoryError: [Errno 21] Is a directory: '/opt/airflow/data/northwind_gitRepo/northwind_gitRepo/tables/'
+[2023-12-08T04:11:30.157+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=upload_csv_to_gcs, task_id=upload_to_gcs, execution_date=20231208T041127, start_date=20231208T041129, end_date=20231208T041130
+[2023-12-08T04:11:30.167+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 60 for task upload_to_gcs ([Errno 21] Is a directory: '/opt/airflow/data/northwind_gitRepo/northwind_gitRepo/tables/'; 11441)
+[2023-12-08T04:11:30.208+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-08T04:11:30.225+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

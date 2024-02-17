@@ -1,0 +1,41 @@
+[2023-12-09T12:26:46.427+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T12:26:42.548968+00:00 [queued]>
+[2023-12-09T12:26:46.440+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T12:26:42.548968+00:00 [queued]>
+[2023-12-09T12:26:46.441+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-12-09T12:26:46.454+0000] {taskinstance.py:1382} INFO - Executing <Task(LocalFilesystemToGCSOperator): upload_to_gcs> on 2023-12-09 12:26:42.548968+00:00
+[2023-12-09T12:26:46.463+0000] {standard_task_runner.py:57} INFO - Started process 13949 to run task
+[2023-12-09T12:26:46.470+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'taskflow', 'upload_to_gcs', 'manual__2023-12-09T12:26:42.548968+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/test_decorator.py', '--cfg-path', '/tmp/tmpzj_kp1ne']
+[2023-12-09T12:26:46.476+0000] {standard_task_runner.py:85} INFO - Job 76: Subtask upload_to_gcs
+[2023-12-09T12:26:46.584+0000] {task_command.py:416} INFO - Running <TaskInstance: taskflow.upload_to_gcs manual__2023-12-09T12:26:42.548968+00:00 [running]> on host 3de6e37e1218
+[2023-12-09T12:26:46.709+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='taskflow' AIRFLOW_CTX_TASK_ID='upload_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-12-09T12:26:42.548968+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-09T12:26:42.548968+00:00'
+[2023-12-09T12:26:46.730+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2023-12-09T12:26:46.732+0000] {base.py:73} INFO - Using connection ID 'google_cloud_datastore_default' for task execution.
+[2023-12-09T12:26:46.734+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2023-12-09T12:26:49.748+0000] {_metadata.py:139} WARNING - Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+[2023-12-09T12:26:52.760+0000] {_metadata.py:139} WARNING - Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+[2023-12-09T12:26:52.767+0000] {_metadata.py:139} WARNING - Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: [Errno 111] Connection refused
+[2023-12-09T12:26:52.773+0000] {_default.py:338} WARNING - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+[2023-12-09T12:26:52.785+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/transfers/local_to_gcs.py", line 110, in execute
+    hook.upload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 530, in upload
+    client = self.get_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 173, in get_conn
+    credentials=self.get_credentials(), client_info=CLIENT_INFO, project=self.project_id
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 296, in get_credentials
+    credentials, _ = self.get_credentials_and_project_id()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 273, in get_credentials_and_project_id
+    credentials, project_id = get_credentials_and_project_id(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/utils/credentials_provider.py", line 362, in get_credentials_and_project_id
+    return _CredentialProvider(*args, **kwargs).get_credentials_and_project()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/utils/credentials_provider.py", line 243, in get_credentials_and_project
+    credentials, project_id = self._get_credentials_using_adc()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/utils/credentials_provider.py", line 348, in _get_credentials_using_adc
+    credentials, project_id = google.auth.default(scopes=self.scopes)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/auth/_default.py", line 691, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+[2023-12-09T12:26:52.815+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=taskflow, task_id=upload_to_gcs, execution_date=20231209T122642, start_date=20231209T122646, end_date=20231209T122652
+[2023-12-09T12:26:52.833+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 76 for task upload_to_gcs (Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.; 13949)
+[2023-12-09T12:26:52.877+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-09T12:26:52.899+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

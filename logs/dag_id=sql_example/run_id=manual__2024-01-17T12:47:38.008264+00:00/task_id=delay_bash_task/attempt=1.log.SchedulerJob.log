@@ -1,0 +1,1 @@
+[2024-01-17T12:47:41.164+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: sql_example.delay_bash_task manual__2024-01-17T12:47:38.008264+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

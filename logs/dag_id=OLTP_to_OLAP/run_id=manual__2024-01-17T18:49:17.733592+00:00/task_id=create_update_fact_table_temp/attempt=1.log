@@ -1,0 +1,36 @@
+[2024-01-17T18:49:43.595+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: OLTP_to_OLAP.create_update_fact_table_temp manual__2024-01-17T18:49:17.733592+00:00 [queued]>
+[2024-01-17T18:49:43.602+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: OLTP_to_OLAP.create_update_fact_table_temp manual__2024-01-17T18:49:17.733592+00:00 [queued]>
+[2024-01-17T18:49:43.602+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T18:49:43.612+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_fact_table_temp> on 2024-01-17 18:49:17.733592+00:00
+[2024-01-17T18:49:43.633+0000] {standard_task_runner.py:60} INFO - Started process 4316 to run task
+[2024-01-17T18:49:43.637+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'OLTP_to_OLAP', 'create_update_fact_table_temp', 'manual__2024-01-17T18:49:17.733592+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpy91800wz']
+[2024-01-17T18:49:43.648+0000] {standard_task_runner.py:88} INFO - Job 77: Subtask create_update_fact_table_temp
+[2024-01-17T18:49:43.696+0000] {task_command.py:423} INFO - Running <TaskInstance: OLTP_to_OLAP.create_update_fact_table_temp manual__2024-01-17T18:49:17.733592+00:00 [running]> on host 0d972f4a0fb8
+[2024-01-17T18:49:43.779+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='OLTP_to_OLAP' AIRFLOW_CTX_TASK_ID='create_update_fact_table_temp' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T18:49:17.733592+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T18:49:17.733592+00:00'
+[2024-01-17T18:49:43.781+0000] {bigquery.py:1245} INFO - Executing: DECLARE today_date DATE DEFAULT '1998-05-06';
+DECLARE frequencyRange INT64 DEFAULT 180; # chỉnh tùy ý muốn
+CREATE OR REPLACE TABLE 
+  `OLAP.Fact_Table_temp` AS
+SELECT
+  orders.OrderID,
+  orders.CustomerID,
+  orders.OrderDate,
+  order_details.ProductID,
+FROM
+  `OLTP.Orders` AS orders
+JOIN 
+  `OLAP.Dim_Order_details` AS order_details
+ON
+  orders.OrderID = order_details.OrderID
+JOIN
+  `OLAP.Dim_Products` AS products
+ON
+  order_details.ProductID = products.ProductID;
+[2024-01-17T18:49:43.788+0000] {connection.py:234} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-17T18:49:43.789+0000] {base.py:83} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-17T18:49:43.795+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2109 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-17T18:49:43.795+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-17T18:49:43.878+0000] {bigquery.py:1596} INFO - Inserting job ***_1705517383877679_0b43d0b00fa7ebdeb6c8ddef443a589f
+[2024-01-17T18:49:46.771+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=OLTP_to_OLAP, task_id=create_update_fact_table_temp, execution_date=20240117T184917, start_date=20240117T184943, end_date=20240117T184946
+[2024-01-17T18:49:46.919+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-01-17T18:49:47.026+0000] {taskinstance.py:3281} INFO - 2 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,36 @@
+[2023-12-29T06:40:22.277+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.run_bigquery_sql scheduled__2023-12-14T00:00:00+00:00 [queued]>
+[2023-12-29T06:40:22.328+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.run_bigquery_sql scheduled__2023-12-14T00:00:00+00:00 [queued]>
+[2023-12-29T06:40:22.330+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-29T06:40:22.469+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): run_bigquery_sql> on 2023-12-14 00:00:00+00:00
+[2023-12-29T06:40:22.602+0000] {standard_task_runner.py:57} INFO - Started process 2569 to run task
+[2023-12-29T06:40:22.618+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'run_bigquery_sql', 'scheduled__2023-12-14T00:00:00+00:00', '--job-id', '171', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpimzmik49']
+[2023-12-29T06:40:22.648+0000] {standard_task_runner.py:85} INFO - Job 171: Subtask run_bigquery_sql
+[2023-12-29T06:40:23.188+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.run_bigquery_sql scheduled__2023-12-14T00:00:00+00:00 [running]> on host 580ab8862310
+[2023-12-29T06:40:24.308+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='run_bigquery_sql' AIRFLOW_CTX_EXECUTION_DATE='2023-12-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-12-14T00:00:00+00:00'
+[2023-12-29T06:40:24.405+0000] {bigquery.py:1241} INFO - Executing: 
+CREATE OR REPLACE TABLE
+  `northwind-qu.Transformed_Dataset.Dim_Products_1` AS
+SELECT
+  t1.ProductName,
+  t1.QuantityPerUnit,
+  t1.UnitPrice,
+  t1.UnitsInStock,
+  t1.UnitsOnOrder,
+  t1.ReorderLevel,
+  t1.Discontinued,
+  t2.CategoryName,
+  t2.Description
+FROM
+  `northwind-qu.OLTP.Products` t1
+LEFT JOIN
+  `northwind-qu.OLTP.Categories` t2
+ON
+  t1.CategoryID = t2.CategoryID
+[2023-12-29T06:40:24.539+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2023-12-29T06:40:24.570+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-12-29T06:40:24.610+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2023-12-29T06:40:24.620+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2023-12-29T06:40:25.343+0000] {bigquery.py:1595} INFO - Inserting job ***_1703832025304276_abe52e69561c7665c1d46b7d48a29d91
+[2023-12-29T06:40:28.129+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=run_bigquery_sql, execution_date=20231214T000000, start_date=20231229T064022, end_date=20231229T064028
+[2023-12-29T06:40:28.218+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-29T06:40:28.260+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

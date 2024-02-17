@@ -1,0 +1,26 @@
+[2023-12-08T04:10:51.799+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: upload_csv_to_gcs.upload_to_gcs manual__2023-12-08T04:10:49.239511+00:00 [queued]>
+[2023-12-08T04:10:51.806+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: upload_csv_to_gcs.upload_to_gcs manual__2023-12-08T04:10:49.239511+00:00 [queued]>
+[2023-12-08T04:10:51.807+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2023-12-08T04:10:51.818+0000] {taskinstance.py:1382} INFO - Executing <Task(LocalFilesystemToGCSOperator): upload_to_gcs> on 2023-12-08 04:10:49.239511+00:00
+[2023-12-08T04:10:51.828+0000] {standard_task_runner.py:57} INFO - Started process 11416 to run task
+[2023-12-08T04:10:51.832+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'upload_csv_to_gcs', 'upload_to_gcs', 'manual__2023-12-08T04:10:49.239511+00:00', '--job-id', '59', '--raw', '--subdir', 'DAGS_FOLDER/local_to_GCS.py', '--cfg-path', '/tmp/tmpt5667rp6']
+[2023-12-08T04:10:51.838+0000] {standard_task_runner.py:85} INFO - Job 59: Subtask upload_to_gcs
+[2023-12-08T04:10:51.886+0000] {task_command.py:416} INFO - Running <TaskInstance: upload_csv_to_gcs.upload_to_gcs manual__2023-12-08T04:10:49.239511+00:00 [running]> on host 3de6e37e1218
+[2023-12-08T04:10:51.963+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='upload_csv_to_gcs' AIRFLOW_CTX_TASK_ID='upload_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2023-12-08T04:10:49.239511+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-08T04:10:49.239511+00:00'
+[2023-12-08T04:10:51.977+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/transfers/local_to_gcs.py", line 90, in execute
+    hook = GCSHook(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 164, in __init__
+    super().__init__(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/google/common/hooks/base_google.py", line 242, in __init__
+    self.extras: dict = self.get_connection(self.gcp_conn_id).extra_dejson
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 477, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_storage_default` isn't defined
+[2023-12-08T04:10:51.984+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=upload_csv_to_gcs, task_id=upload_to_gcs, execution_date=20231208T041049, start_date=20231208T041051, end_date=20231208T041051
+[2023-12-08T04:10:51.993+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 59 for task upload_to_gcs (The conn_id `google_cloud_storage_default` isn't defined; 11416)
+[2023-12-08T04:10:52.010+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-12-08T04:10:52.024+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

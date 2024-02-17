@@ -1,0 +1,73 @@
+[2024-01-17T13:04:01.595+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_fact_table manual__2024-01-17T13:03:05.170453+00:00 [queued]>
+[2024-01-17T13:04:01.602+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_fact_table manual__2024-01-17T13:03:05.170453+00:00 [queued]>
+[2024-01-17T13:04:01.602+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T13:04:01.612+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_fact_table> on 2024-01-17 13:03:05.170453+00:00
+[2024-01-17T13:04:01.624+0000] {standard_task_runner.py:60} INFO - Started process 3425 to run task
+[2024-01-17T13:04:01.629+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_fact_table', 'manual__2024-01-17T13:03:05.170453+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmph532xhwx']
+[2024-01-17T13:04:01.633+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask create_update_fact_table
+[2024-01-17T13:04:01.692+0000] {task_command.py:423} INFO - Running <TaskInstance: sql_example.create_update_fact_table manual__2024-01-17T13:03:05.170453+00:00 [running]> on host fafdf46f827b
+[2024-01-17T13:04:01.760+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_fact_table' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T13:03:05.170453+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T13:03:05.170453+00:00'
+[2024-01-17T13:04:01.762+0000] {bigquery.py:1245} INFO - Executing: IF NOT EXISTS (
+  SELECT 1
+  FROM `OLAP.INFORMATION_SCHEMA.TABLES`
+  WHERE TABLE_NAME = 'Fact_Order'
+)
+THEN
+  CREATE OR REPLACE TABLE `OLAP.Fact_Order` AS 
+  SELECT
+    Order_details.OrderID,
+    Order_details.ProductID,
+    Orders.CustomerID,
+    Orders.OrderDate,
+    Order_details.UnitPrice,
+    Order_details.Quantity,
+    Order_details.Discount,
+  FROM 
+    `OLTP.Order_details` as Order_details
+  JOIN
+    `OLTP.Orders` as Orders
+  ON
+    Order_details.OrderID = Orders.OrderID;
+  END IF;
+
+IF NOT EXISTS (
+  SELECT 1
+  FROM `OLAP`.INFORMATION_SCHEMA.COLUMNS
+  WHERE TABLE_NAME = 'Fact_Order'
+    AND (
+      COLUMN_NAME = 'Revenue'
+      OR COLUMN_NAME = 'Discount_Money'
+    )
+)
+-- adding missing columns to Fact_Order table
+THEN
+  EXECUTE IMMEDIATE 'ALTER TABLE `OLAP.Fact_Order` ADD COLUMN Revenue FLOAT64';
+  EXECUTE IMMEDIATE 'ALTER TABLE `OLAP.Fact_Order` ADD COLUMN Discount_Money FLOAT64';
+END IF;
+
+UPDATE `OLAP.Fact_Order` AS fact
+SET OrderDate = `OLTP.Orders`.OrderDate
+FROM `OLTP.Orders` 
+WHERE fact.OrderID = `OLTP.Orders`.OrderID;
+
+UPDATE `OLAP.Fact_Order` AS fact
+SET Revenue = fact.UnitPrice*fact.Quantity*(1-fact.Discount)
+WHERE true;
+
+UPDATE `OLAP.Fact_Order` AS fact
+SET Discount_Money = fact.UnitPrice*fact.Quantity*fact.Discount
+WHERE true;
+
+
+
+
+
+
+[2024-01-17T13:04:01.771+0000] {connection.py:234} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-17T13:04:01.772+0000] {base.py:83} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-17T13:04:01.777+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2109 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-17T13:04:01.777+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-17T13:04:01.845+0000] {bigquery.py:1596} INFO - Inserting job ***_1705496641844661_36ceb930dabb7b2f43bec5afc55a71ba
+[2024-01-17T13:04:09.262+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_fact_table, execution_date=20240117T130305, start_date=20240117T130401, end_date=20240117T130409
+[2024-01-17T13:04:09.353+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-01-17T13:04:09.388+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

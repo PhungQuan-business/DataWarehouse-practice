@@ -1,0 +1,33 @@
+[2024-01-17T12:39:55.796+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_product manual__2024-01-17T12:39:50.292858+00:00 [queued]>
+[2024-01-17T12:39:55.837+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_product manual__2024-01-17T12:39:50.292858+00:00 [queued]>
+[2024-01-17T12:39:55.839+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 0
+[2024-01-17T12:39:55.865+0000] {taskinstance.py:2192} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_product> on 2024-01-17 12:39:50.292858+00:00
+[2024-01-17T12:39:55.891+0000] {standard_task_runner.py:60} INFO - Started process 1122 to run task
+[2024-01-17T12:39:55.912+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_product', 'manual__2024-01-17T12:39:50.292858+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmp1j7vcz1u']
+[2024-01-17T12:39:55.966+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask create_update_dim_product
+[2024-01-17T12:39:56.204+0000] {task_command.py:423} INFO - Running <TaskInstance: sql_example.create_update_dim_product manual__2024-01-17T12:39:50.292858+00:00 [running]> on host fafdf46f827b
+[2024-01-17T12:39:56.384+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_product' AIRFLOW_CTX_EXECUTION_DATE='2024-01-17T12:39:50.292858+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-17T12:39:50.292858+00:00'
+[2024-01-17T12:39:56.389+0000] {bigquery.py:1245} INFO - Executing: CREATE OR REPLACE TABLE 
+  `OLAP.Dim_Products` AS
+SELECT
+  products.ProductID,
+  products.ProductName,
+  products.UnitPrice,
+  categories.CategoryID,
+  categories.CategoryName,
+FROM
+  `OLTP.Products` AS products
+JOIN
+  `OLTP.Categories` AS categories
+ON
+  products.CategoryID = categories.CategoryID;
+
+-- chưa thêm giá trị Mode 
+[2024-01-17T12:39:56.408+0000] {connection.py:234} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-17T12:39:56.412+0000] {base.py:83} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-17T12:39:56.425+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2109 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-17T12:39:56.427+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-17T12:39:56.584+0000] {bigquery.py:1596} INFO - Inserting job ***_1705495196581482_50c93129604d17fc12902c61b2986ba0
+[2024-01-17T12:39:59.963+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_dim_product, execution_date=20240117T123950, start_date=20240117T123955, end_date=20240117T123959
+[2024-01-17T12:40:00.028+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-01-17T12:40:00.090+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

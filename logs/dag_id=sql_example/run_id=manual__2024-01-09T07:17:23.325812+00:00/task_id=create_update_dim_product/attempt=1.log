@@ -1,0 +1,99 @@
+[2024-01-09T07:17:47.153+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_example.create_update_dim_product manual__2024-01-09T07:17:23.325812+00:00 [queued]>
+[2024-01-09T07:17:47.160+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_example.create_update_dim_product manual__2024-01-09T07:17:23.325812+00:00 [queued]>
+[2024-01-09T07:17:47.161+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 0
+[2024-01-09T07:17:47.169+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryExecuteQueryOperator): create_update_dim_product> on 2024-01-09 07:17:23.325812+00:00
+[2024-01-09T07:17:47.179+0000] {standard_task_runner.py:57} INFO - Started process 1940 to run task
+[2024-01-09T07:17:47.188+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'sql_example', 'create_update_dim_product', 'manual__2024-01-09T07:17:23.325812+00:00', '--job-id', '264', '--raw', '--subdir', 'DAGS_FOLDER/data_transform_BQ.py', '--cfg-path', '/tmp/tmpuqjvfxn8']
+[2024-01-09T07:17:47.199+0000] {standard_task_runner.py:85} INFO - Job 264: Subtask create_update_dim_product
+[2024-01-09T07:17:47.315+0000] {task_command.py:416} INFO - Running <TaskInstance: sql_example.create_update_dim_product manual__2024-01-09T07:17:23.325812+00:00 [running]> on host 812d78d3a260
+[2024-01-09T07:17:47.418+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='phungquan' AIRFLOW_CTX_DAG_ID='sql_example' AIRFLOW_CTX_TASK_ID='create_update_dim_product' AIRFLOW_CTX_EXECUTION_DATE='2024-01-09T07:17:23.325812+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-01-09T07:17:23.325812+00:00'
+[2024-01-09T07:17:47.421+0000] {bigquery.py:1241} INFO - Executing: -- Create or replace Dim_Product table
+CREATE OR REPLACE TABLE OLAP.Dim_Product AS
+SELECT
+    p.ProductID,
+    p.ProductName,
+    p.UnitPrice,
+    0.0 AS Total_sale,
+    0 AS High_productive_product,
+    0 AS Mode,
+    p.CategoryID,
+    c.CategoryName,
+    0.0 AS Total_Discount
+FROM test_dataset.Products p
+LEFT JOIN test_dataset.Categories c ON p.CategoryID = c.CategoryID;
+
+-- Calculate Total_sale from Fact_Order
+UPDATE `OLAP.Dim_Product` AS dim
+SET Total_sale = (
+    SELECT COALESCE(SUM(Revenue), 0)
+    FROM `OLAP.Fact_Order` AS fact
+    WHERE dim.ProductID = fact.ProductID
+)
+WHERE dim.ProductID IS NOT NULL;
+
+-- Update CategoryName from test_dataset.Categories
+UPDATE `OLAP.Dim_Product` AS dim
+SET CategoryName = `OLTP.Categories`.CategoryName
+FROM `OLTP.Categories`
+WHERE dim.CategoryID = `OLTP.Categories`.CategoryID;
+
+-- Calculate Mode from Fact_Order
+UPDATE `OLAP.Dim_Product` AS DimProduct
+SET Mode = (
+    SELECT Quantity
+    FROM (
+        SELECT ProductID, 
+               Quantity,
+               ROW_NUMBER() OVER (PARTITION BY ProductID ORDER BY COUNT(*) DESC) AS rnk
+        FROM `OLAP.Fact_Order`
+        GROUP BY ProductID, Quantity
+    ) AS subquery
+    WHERE rnk = 1
+    AND DimProduct.ProductID = subquery.ProductID
+)
+WHERE DimProduct.ProductID IN (SELECT ProductID FROM `OLAP.Dim_Product`);
+
+-- Step 1: Create a temporary table to store the results
+CREATE OR REPLACE TABLE `OLAP.Temp_RankedProducts` AS
+WITH RankedProducts AS (
+    SELECT 
+        ProductID,
+        Total_sale,
+        PERCENT_RANK() OVER (ORDER BY Total_sale DESC) AS PercentRank
+    FROM `OLAP.Dim_Product`
+)
+SELECT 
+    ProductID,
+    Total_sale,
+    CASE 
+        WHEN PercentRank <= 0.8 THEN 1  
+        ELSE 0  
+    END AS ContributesTo80Percent
+FROM RankedProducts;
+
+-- Step 2: Update the Dim_Product table using MERGE
+MERGE `OLAP.Dim_Product` AS target
+USING `OLAP.Temp_RankedProducts` AS source
+ON target.ProductID = source.ProductID
+WHEN MATCHED THEN
+  UPDATE SET target.High_productive_product = source.ContributesTo80Percent;
+
+-- Step 3: Drop the temporary table
+DROP TABLE `OLAP.Temp_RankedProducts`;
+
+-- Calculate Total_Discount from Fact_Order
+UPDATE `OLAP.Dim_Product` AS dim
+SET Total_Discount = (
+    SELECT COALESCE(SUM(Discount_Money), 0)
+    FROM `OLAP.Fact_Order` AS fact
+    WHERE dim.ProductID = fact.ProductID
+)
+WHERE dim.ProductID IS NOT NULL;
+[2024-01-09T07:17:47.431+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-01-09T07:17:47.432+0000] {base.py:73} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2024-01-09T07:17:47.440+0000] {logging_mixin.py:154} WARNING - /home/***/.local/lib/python3.8/site-packages/***/providers/google/cloud/hooks/bigquery.py:2108 AirflowProviderDeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2024-01-09T07:17:47.441+0000] {credentials_provider.py:353} INFO - Getting connection using `google.auth.default()` since no explicit credentials are provided.
+[2024-01-09T07:17:47.515+0000] {bigquery.py:1595} INFO - Inserting job ***_1704784667513659_d6ff572e2a5e4a46cd69ac584416bd8e
+[2024-01-09T07:18:03.318+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=sql_example, task_id=create_update_dim_product, execution_date=20240109T071723, start_date=20240109T071747, end_date=20240109T071803
+[2024-01-09T07:18:03.391+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-01-09T07:18:03.411+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
