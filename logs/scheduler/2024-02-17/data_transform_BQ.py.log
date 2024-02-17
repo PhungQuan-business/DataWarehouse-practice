@@ -1,0 +1,133 @@
+[2024-02-17T09:25:36.295+0000] {processor.py:161} INFO - Started process (PID=172) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:25:36.297+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:25:36.304+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:25:36.303+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:25:38.360+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:25:38.629+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:25:38.628+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:25:38.645+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:25:38.644+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:25:38.671+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 2.383 seconds
+[2024-02-17T09:26:09.351+0000] {processor.py:161} INFO - Started process (PID=223) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:26:09.355+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:26:09.358+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:09.357+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:26:11.096+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:26:11.139+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:11.138+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:26:11.149+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:11.149+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:26:11.166+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.820 seconds
+[2024-02-17T09:26:41.960+0000] {processor.py:161} INFO - Started process (PID=268) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:26:41.963+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:26:41.970+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:41.969+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:26:43.051+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:26:43.085+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:43.085+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:26:43.100+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:43.099+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:26:43.127+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.173 seconds
+[2024-02-17T09:27:13.909+0000] {processor.py:161} INFO - Started process (PID=313) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:27:13.911+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:27:13.926+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:13.924+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:27:15.232+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:27:15.259+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:15.259+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:27:15.271+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:15.271+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:27:15.285+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.392 seconds
+[2024-02-17T09:27:46.020+0000] {processor.py:161} INFO - Started process (PID=358) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:27:46.022+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:27:46.025+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:46.024+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:27:46.891+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:27:46.926+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:46.926+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:27:46.934+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:46.934+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:27:46.951+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.940 seconds
+[2024-02-17T09:28:17.610+0000] {processor.py:161} INFO - Started process (PID=403) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:28:17.612+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:28:17.615+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:17.614+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:28:18.399+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:28:18.421+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:18.420+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:28:18.431+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:18.431+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:28:18.445+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.841 seconds
+[2024-02-17T09:28:49.360+0000] {processor.py:161} INFO - Started process (PID=448) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:28:49.362+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:28:49.365+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:49.364+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:28:50.211+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:28:50.233+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:50.233+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:28:50.243+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:50.242+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:28:50.270+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.915 seconds
+[2024-02-17T09:29:20.867+0000] {processor.py:161} INFO - Started process (PID=493) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:29:20.868+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:29:20.871+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:20.870+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:29:21.716+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:29:21.739+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:21.738+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:29:21.747+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:21.747+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:29:21.759+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.898 seconds
+[2024-02-17T09:29:52.101+0000] {processor.py:161} INFO - Started process (PID=537) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:29:52.105+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:29:52.113+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:52.110+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:29:53.899+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:29:53.926+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:53.925+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:29:53.942+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:53.942+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:29:53.964+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.868 seconds
+[2024-02-17T09:30:24.724+0000] {processor.py:161} INFO - Started process (PID=582) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:30:24.726+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:30:24.730+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:24.730+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:30:25.613+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:30:25.642+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:25.642+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:30:25.655+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:25.655+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:30:25.675+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.956 seconds
+[2024-02-17T09:30:56.488+0000] {processor.py:161} INFO - Started process (PID=627) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:30:56.489+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:30:56.493+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:56.492+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:30:57.352+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:30:57.373+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:57.373+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:30:57.384+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:57.383+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:30:57.403+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.920 seconds
+[2024-02-17T09:31:27.954+0000] {processor.py:161} INFO - Started process (PID=672) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:31:27.955+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:31:27.958+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:31:27.957+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:31:28.744+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:31:28.763+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:31:28.763+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:31:28.772+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:31:28.772+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:31:28.786+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.836 seconds
+[2024-02-17T09:31:59.581+0000] {processor.py:161} INFO - Started process (PID=717) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:31:59.583+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:31:59.586+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:31:59.586+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:32:01.201+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:32:01.240+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:01.240+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:32:01.251+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:01.251+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:32:01.270+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.695 seconds
+[2024-02-17T09:32:32.193+0000] {processor.py:161} INFO - Started process (PID=762) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:32:32.196+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:32:32.200+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:32.200+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:32:33.143+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:32:33.164+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:33.164+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:32:33.173+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:33.173+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:32:33.188+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.999 seconds
+[2024-02-17T09:33:03.822+0000] {processor.py:161} INFO - Started process (PID=807) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:33:03.823+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:33:03.826+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:03.826+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:33:04.615+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:33:04.645+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:04.645+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:33:04.657+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:04.657+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:33:04.672+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.857 seconds
+[2024-02-17T09:33:35.241+0000] {processor.py:161} INFO - Started process (PID=852) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:33:35.243+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:33:35.248+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:35.247+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:33:36.054+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:33:36.074+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:36.074+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:33:36.082+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:36.082+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:33:36.097+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.860 seconds
+[2024-02-17T09:34:06.744+0000] {processor.py:161} INFO - Started process (PID=897) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:34:06.746+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:34:06.748+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:06.748+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:34:07.594+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:34:07.633+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:07.633+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:34:07.655+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:07.655+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:34:07.682+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.942 seconds
+[2024-02-17T09:34:38.741+0000] {processor.py:161} INFO - Started process (PID=942) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:34:38.746+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:34:38.755+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:38.753+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:34:39.885+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:34:39.906+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:39.905+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:34:39.929+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:39.929+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:34:39.970+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 1.234 seconds
+[2024-02-17T09:35:10.618+0000] {processor.py:161} INFO - Started process (PID=993) to work on /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:35:10.620+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/data_transform_BQ.py for tasks to queue
+[2024-02-17T09:35:10.628+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:35:10.623+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:35:11.449+0000] {processor.py:840} INFO - DAG(s) 'OLTP_to_OLAP' retrieved from /opt/airflow/dags/data_transform_BQ.py
+[2024-02-17T09:35:11.476+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:35:11.475+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-02-17T09:35:11.485+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:35:11.485+0000] {dag.py:3820} INFO - Setting next_dagrun for OLTP_to_OLAP to None, run_after=None
+[2024-02-17T09:35:11.506+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/data_transform_BQ.py took 0.892 seconds

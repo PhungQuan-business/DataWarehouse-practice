@@ -1,0 +1,95 @@
+[2024-02-17T09:25:38.793+0000] {processor.py:161} INFO - Started process (PID=202) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:25:38.796+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:25:38.800+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:25:38.799+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:25:38.808+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:25:38.828+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.042 seconds
+[2024-02-17T09:26:11.334+0000] {processor.py:161} INFO - Started process (PID=249) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:26:11.336+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:26:11.340+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:11.340+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:26:11.347+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:26:11.367+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.040 seconds
+[2024-02-17T09:26:43.193+0000] {processor.py:161} INFO - Started process (PID=292) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:26:43.195+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:26:43.198+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:26:43.198+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:26:43.202+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:26:43.220+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.032 seconds
+[2024-02-17T09:27:15.410+0000] {processor.py:161} INFO - Started process (PID=337) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:27:15.411+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:27:15.415+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:15.414+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:27:15.423+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:27:15.451+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.047 seconds
+[2024-02-17T09:27:47.030+0000] {processor.py:161} INFO - Started process (PID=384) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:27:47.032+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:27:47.034+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:27:47.034+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:27:47.038+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:27:47.058+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.030 seconds
+[2024-02-17T09:28:18.532+0000] {processor.py:161} INFO - Started process (PID=429) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:28:18.533+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:28:18.535+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:18.535+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:28:18.539+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:28:18.553+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.025 seconds
+[2024-02-17T09:28:50.320+0000] {processor.py:161} INFO - Started process (PID=472) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:28:50.321+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:28:50.323+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:28:50.322+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:28:50.326+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:28:50.338+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.022 seconds
+[2024-02-17T09:29:21.821+0000] {processor.py:161} INFO - Started process (PID=517) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:29:21.822+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:29:21.824+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:21.824+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:29:21.828+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:29:21.845+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.027 seconds
+[2024-02-17T09:29:54.058+0000] {processor.py:161} INFO - Started process (PID=561) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:29:54.059+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:29:54.061+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:29:54.061+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:29:54.064+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:29:54.089+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.035 seconds
+[2024-02-17T09:30:25.746+0000] {processor.py:161} INFO - Started process (PID=606) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:30:25.747+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:30:25.749+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:25.749+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:30:25.753+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:30:25.766+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.023 seconds
+[2024-02-17T09:30:57.506+0000] {processor.py:161} INFO - Started process (PID=653) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:30:57.507+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:30:57.509+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:30:57.509+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:30:57.513+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:30:57.527+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.024 seconds
+[2024-02-17T09:31:28.862+0000] {processor.py:161} INFO - Started process (PID=698) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:31:28.863+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:31:28.865+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:31:28.865+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:31:28.868+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:31:28.880+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.021 seconds
+[2024-02-17T09:32:01.463+0000] {processor.py:161} INFO - Started process (PID=743) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:32:01.465+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:32:01.467+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:01.467+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:32:01.471+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:32:01.484+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.027 seconds
+[2024-02-17T09:32:33.279+0000] {processor.py:161} INFO - Started process (PID=788) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:32:33.280+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:32:33.282+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:32:33.282+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:32:33.286+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:32:33.298+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.024 seconds
+[2024-02-17T09:33:04.763+0000] {processor.py:161} INFO - Started process (PID=833) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:33:04.764+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:33:04.766+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:04.765+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:33:04.769+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:33:04.782+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.023 seconds
+[2024-02-17T09:33:36.186+0000] {processor.py:161} INFO - Started process (PID=878) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:33:36.187+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:33:36.189+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:33:36.189+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:33:36.192+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:33:36.204+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.022 seconds
+[2024-02-17T09:34:07.766+0000] {processor.py:161} INFO - Started process (PID=921) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:34:07.768+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:34:07.772+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:07.772+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:34:07.780+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:34:07.796+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.035 seconds
+[2024-02-17T09:34:40.108+0000] {processor.py:161} INFO - Started process (PID=974) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:34:40.110+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:34:40.113+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:34:40.113+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:34:40.118+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:34:40.141+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.036 seconds
+[2024-02-17T09:35:11.604+0000] {processor.py:161} INFO - Started process (PID=1019) to work on /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:35:11.606+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/local_to_GCS.py for tasks to queue
+[2024-02-17T09:35:11.609+0000] {logging_mixin.py:188} INFO - [2024-02-17T09:35:11.609+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:35:11.614+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/local_to_GCS.py
+[2024-02-17T09:35:11.628+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/local_to_GCS.py took 0.028 seconds
