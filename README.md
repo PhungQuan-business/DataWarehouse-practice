@@ -22,7 +22,7 @@ The services use in GCP consist of:
 
 # Practice in detail
 ## Visualization of workflow
-![Alt textimages/](image.png)
+![Alt textimages/](images/image.png)
 
 ## Setup Apache Nifi
 
